@@ -1,6 +1,6 @@
 import pandas as pd
 import folium
-from folium.plugins import MarkerCluster, HeatMap
+from folium.plugins import MarkerCluster
 
 # Load the geocoded dataset
 df = pd.read_csv('../data/geocoded_dataset.csv')
@@ -10,14 +10,6 @@ m = folium.Map(location=[23.6850, 90.3563], zoom_start=7)
 
 # Create a marker cluster
 marker_cluster = MarkerCluster().add_to(m)
-
-# Define a color mapping for groups
-group_colors = {
-    "JMB": "red",
-    "HJB": "blue",
-    "ISG": "green",
-    "AQS": "orange"
-}
 
 # Add markers to the cluster
 for idx, row in df.iterrows():
@@ -39,21 +31,14 @@ for idx, row in df.iterrows():
         tooltip_content = f"Killed: {row['Killed']}, Injured: {row['Injured']}"
         tooltip = folium.Tooltip(tooltip_content)
 
-        # Add the marker to the map with color coding
+        # Add the marker to the map
         folium.Marker(
             location=[row['Latitude'], row['Longitude']],
             popup=popup,
-            tooltip=tooltip,
-            icon=folium.Icon(color=group_colors.get(row['Group'], "gray"))  # Default to gray if group not in mapping
+            tooltip=tooltip
         ).add_to(marker_cluster)
 
-# Create heatmap data
-heat_data = [[row['Latitude'], row['Longitude'], row['Killed'] + row['Injured']] for idx, row in df.iterrows()]
-
-# Add heatmap to the map
-HeatMap(heat_data).add_to(m)
-
 # Save the map to an HTML file
-m.save('../output/combined_incident_map2.html')
+m.save('../ouput/incident_map.html')
 
-print("Combined map created and saved to 'combined_incident_map.html'.")
+print("Map created and saved to 'incident_map.html'.")
