@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8164082657f5b960aca6690c3b4a56a7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_8164082657f5b960aca6690c3b4a56a7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_8164082657f5b960aca6690c3b4a56a7 = L.map(
+                "map_8164082657f5b960aca6690c3b4a56a7",
+                {
+                    center: [23.685, 90.3563],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4a30ceb359fd153cb1201f6f2ff10666 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4a30ceb359fd153cb1201f6f2ff10666.addTo(map_8164082657f5b960aca6690c3b4a56a7);
+        
+    
+            var marker_cluster_7c0b66e37c98798eff3012f608b64059 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_cb2f3a565207452efbcf1bc6fa7cccbc = L.marker(
+                [24.8889305, 90.3845187],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_c81bca2af3b685aea122f3e4a38c8473 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_550ded1e6f29ab59e93354632f243955 = $(`<div id="html_550ded1e6f29ab59e93354632f243955" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 06-Dec-02<br>         <b>Location:</b> Mymensingh<br>         <b>Target/Event:</b> 4 Cinema Halls<br>         <b>Killed:</b> 27<br>         <b>Injured:</b> 200<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Multiple  cinema halls bombed, targeting cultural freedom.         </div>`)[0];
+                popup_c81bca2af3b685aea122f3e4a38c8473.setContent(html_550ded1e6f29ab59e93354632f243955);
+            
+        
+
+        marker_cb2f3a565207452efbcf1bc6fa7cccbc.bindPopup(popup_c81bca2af3b685aea122f3e4a38c8473)
+        ;
+
+        
+    
+    
+            marker_cb2f3a565207452efbcf1bc6fa7cccbc.bindTooltip(
+                `<div>
+                     Killed: 27, Injured: 200
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fd602adef1397a63b260114413ee7c2d = L.marker(
+                [24.6285432, 89.0376862],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_43333b6a89c5f28e17fb5aaa87ce2187 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b00d2f5220228a139c89b9d388fb4dcd = $(`<div id="html_b00d2f5220228a139c89b9d388fb4dcd" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 1-Apr-2004<br>         <b>Location:</b> Rajshahi<br>         <b>Target/Event:</b> Lenin-Karl-Marxists (Communists) Sarbohara (Communists - Naxalites)<br>         <b>Killed:</b> 24<br>         <b>Injured:</b> 300<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Coordinated attacks against  leftist groups, killing many.         </div>`)[0];
+                popup_43333b6a89c5f28e17fb5aaa87ce2187.setContent(html_b00d2f5220228a139c89b9d388fb4dcd);
+            
+        
+
+        marker_fd602adef1397a63b260114413ee7c2d.bindPopup(popup_43333b6a89c5f28e17fb5aaa87ce2187)
+        ;
+
+        
+    
+    
+            marker_fd602adef1397a63b260114413ee7c2d.bindTooltip(
+                `<div>
+                     Killed: 24, Injured: 300
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_442daaf4c91c39999e1975c96c8d4869 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_8a0e5da55543c321145de0f2b03609d9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5fd4be820a04823c8b4c78a0094cd36a = $(`<div id="html_5fd4be820a04823c8b4c78a0094cd36a" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 24-Aug-04<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Awami League Rally<br>         <b>Killed:</b> 24<br>         <b>Injured:</b> 300<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> High-profile attack on a rally led by Sheikh Hasina, former Prime Minister.         </div>`)[0];
+                popup_8a0e5da55543c321145de0f2b03609d9.setContent(html_5fd4be820a04823c8b4c78a0094cd36a);
+            
+        
+
+        marker_442daaf4c91c39999e1975c96c8d4869.bindPopup(popup_8a0e5da55543c321145de0f2b03609d9)
+        ;
+
+        
+    
+    
+            marker_442daaf4c91c39999e1975c96c8d4869.bindTooltip(
+                `<div>
+                     Killed: 24, Injured: 300
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e6f58b7d7b33d2f556973b0046c5dd56 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_c7d2162fd68a1b397e6b92107aea73f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ace5ed5e705e177f744110502ae8ad8f = $(`<div id="html_ace5ed5e705e177f744110502ae8ad8f" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 1-Jul-16<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Holy Artisan Bakery Attack<br>         <b>Killed:</b> 24<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_c7d2162fd68a1b397e6b92107aea73f6.setContent(html_ace5ed5e705e177f744110502ae8ad8f);
+            
+        
+
+        marker_e6f58b7d7b33d2f556973b0046c5dd56.bindPopup(popup_c7d2162fd68a1b397e6b92107aea73f6)
+        ;
+
+        
+    
+    
+            marker_e6f58b7d7b33d2f556973b0046c5dd56.bindTooltip(
+                `<div>
+                     Killed: 24, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c3aadb2d276308fb5b2efc46f8d19e57 = L.marker(
+                [23.6236732, 90.4988075],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_3a8af656a35caf2c226732aaa4f12600 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_55f69fc2604463e22ccf1fedd4c6ad62 = $(`<div id="html_55f69fc2604463e22ccf1fedd4c6ad62" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 16-Jun-01<br>         <b>Location:</b> Narayanganj<br>         <b>Target/Event:</b> Awami League Office<br>         <b>Killed:</b> 22<br>         <b>Injured:</b> 100<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bombing at an Awami League office, escalating political violence.         </div>`)[0];
+                popup_3a8af656a35caf2c226732aaa4f12600.setContent(html_55f69fc2604463e22ccf1fedd4c6ad62);
+            
+        
+
+        marker_c3aadb2d276308fb5b2efc46f8d19e57.bindPopup(popup_3a8af656a35caf2c226732aaa4f12600)
+        ;
+
+        
+    
+    
+            marker_c3aadb2d276308fb5b2efc46f8d19e57.bindTooltip(
+                `<div>
+                     Killed: 22, Injured: 100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5232ae4e13c8d35d4feb536f6ac9bc8a = L.marker(
+                [23.1665256, 89.2094419],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_422a6854a55deb015a5d8e2eda4fe638 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aaa9e8b3104e6ceb054e6918a8f28000 = $(`<div id="html_aaa9e8b3104e6ceb054e6918a8f28000" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 06-Mar-99<br>         <b>Location:</b> Jessore<br>         <b>Target/Event:</b> Udichi Event<br>         <b>Killed:</b> 10<br>         <b>Injured:</b> 150<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> A bomb attack during an Udichi cultural event, causing numerous casualties.         </div>`)[0];
+                popup_422a6854a55deb015a5d8e2eda4fe638.setContent(html_aaa9e8b3104e6ceb054e6918a8f28000);
+            
+        
+
+        marker_5232ae4e13c8d35d4feb536f6ac9bc8a.bindPopup(popup_422a6854a55deb015a5d8e2eda4fe638)
+        ;
+
+        
+    
+    
+            marker_5232ae4e13c8d35d4feb536f6ac9bc8a.bindTooltip(
+                `<div>
+                     Killed: 10, Injured: 150
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_09d12dfc8b957102a161584356299d8e = L.marker(
+                [23.0049937, 89.8303176],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_d28d7670ce5b6fde4c94ac688305f8f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_45e4077a217c604f0ed07de5540f3460 = $(`<div id="html_45e4077a217c604f0ed07de5540f3460" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 03-Jun-01<br>         <b>Location:</b> Gopalganj<br>         <b>Target/Event:</b> Church<br>         <b>Killed:</b> 10<br>         <b>Injured:</b> 26<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> A church was bombed, targeting the Christian community.         </div>`)[0];
+                popup_d28d7670ce5b6fde4c94ac688305f8f9.setContent(html_45e4077a217c604f0ed07de5540f3460);
+            
+        
+
+        marker_09d12dfc8b957102a161584356299d8e.bindPopup(popup_d28d7670ce5b6fde4c94ac688305f8f9)
+        ;
+
+        
+    
+    
+            marker_09d12dfc8b957102a161584356299d8e.bindTooltip(
+                `<div>
+                     Killed: 10, Injured: 26
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7ad99bd5851bcc86133f2557e612fbb9 = L.marker(
+                [22.9372087, 89.2852741],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_5094c6085927b8eb758caf664f16baf8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dab7705c3dee086eb1e0ca2c0831e304 = $(`<div id="html_dab7705c3dee086eb1e0ca2c0831e304" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 08-Oct-99<br>         <b>Location:</b> Khulna<br>         <b>Target/Event:</b> Ahmadiyya Mosque<br>         <b>Killed:</b> 8<br>         <b>Injured:</b> 30<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Attack on an  Ahmadiyya mosque, highlighting religious tensions.         </div>`)[0];
+                popup_5094c6085927b8eb758caf664f16baf8.setContent(html_dab7705c3dee086eb1e0ca2c0831e304);
+            
+        
+
+        marker_7ad99bd5851bcc86133f2557e612fbb9.bindPopup(popup_5094c6085927b8eb758caf664f16baf8)
+        ;
+
+        
+    
+    
+            marker_7ad99bd5851bcc86133f2557e612fbb9.bindTooltip(
+                `<div>
+                     Killed: 8, Injured: 30
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0be58afc981eb3427c6b6fc423f30a87 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_676a4473c296aa584cdcac31d2ab4ea1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb1622bb9689e1aad1d33b1d57c7d00c = $(`<div id="html_cb1622bb9689e1aad1d33b1d57c7d00c" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 14-Apr-01<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Chhayanaut Event (Pahela Baishakh, Ramna Park)<br>         <b>Killed:</b> 8<br>         <b>Injured:</b> 50<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Attack during the celebration of the  Bengali New Year at Ramna Park.         </div>`)[0];
+                popup_676a4473c296aa584cdcac31d2ab4ea1.setContent(html_cb1622bb9689e1aad1d33b1d57c7d00c);
+            
+        
+
+        marker_0be58afc981eb3427c6b6fc423f30a87.bindPopup(popup_676a4473c296aa584cdcac31d2ab4ea1)
+        ;
+
+        
+    
+    
+            marker_0be58afc981eb3427c6b6fc423f30a87.bindTooltip(
+                `<div>
+                     Killed: 8, Injured: 50
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2a6832ec7a4dd31a42424e6866ac53f4 = L.marker(
+                [22.6554781, 89.7941813],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_2530796ccfd3b391e6035b7748867538 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15121fdf2542b48e3ff224402b72c491 = $(`<div id="html_15121fdf2542b48e3ff224402b72c491" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 23-Sep-01<br>         <b>Location:</b> Bagerhat<br>         <b>Target/Event:</b> Awami League Rally<br>         <b>Killed:</b> 8<br>         <b>Injured:</b> 100<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack on an Awami League political rally, causing significant casualties.         </div>`)[0];
+                popup_2530796ccfd3b391e6035b7748867538.setContent(html_15121fdf2542b48e3ff224402b72c491);
+            
+        
+
+        marker_2a6832ec7a4dd31a42424e6866ac53f4.bindPopup(popup_2530796ccfd3b391e6035b7748867538)
+        ;
+
+        
+    
+    
+            marker_2a6832ec7a4dd31a42424e6866ac53f4.bindTooltip(
+                `<div>
+                     Killed: 8, Injured: 100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6f9204b521a90cefc6741cd5258b688b = L.marker(
+                [23.9997558, 90.4173629],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_ecccc43b093827f184437a86852eb453 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3cabddf4d11dad86ae6bbeba445e51a = $(`<div id="html_c3cabddf4d11dad86ae6bbeba445e51a" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 29-Nov-05<br>         <b>Location:</b> Gazipur<br>         <b>Target/Event:</b> Lawyers<br>         <b>Killed:</b> 8<br>         <b>Injured:</b> 48<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Bomb attack in a courthouse, killing  lawyers and litigants.         </div>`)[0];
+                popup_ecccc43b093827f184437a86852eb453.setContent(html_c3cabddf4d11dad86ae6bbeba445e51a);
+            
+        
+
+        marker_6f9204b521a90cefc6741cd5258b688b.bindPopup(popup_ecccc43b093827f184437a86852eb453)
+        ;
+
+        
+    
+    
+            marker_6f9204b521a90cefc6741cd5258b688b.bindTooltip(
+                `<div>
+                     Killed: 8, Injured: 48
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9641ae472c2a6aca16cc870f8f733e84 = L.marker(
+                [24.89156685, 90.71253264209184],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_6da25e691bcc727e31f3d7ac35e4efe8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_18f82a9160f6d861735eae4b338c5f68 = $(`<div id="html_18f82a9160f6d861735eae4b338c5f68" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 08-Dec-05<br>         <b>Location:</b> Netrokona<br>         <b>Target/Event:</b> Udichi Event<br>         <b>Killed:</b> 8<br>         <b>Injured:</b> 50<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Cultural activists attacked at an Udichi event, part of a broader attack on culture.         </div>`)[0];
+                popup_6da25e691bcc727e31f3d7ac35e4efe8.setContent(html_18f82a9160f6d861735eae4b338c5f68);
+            
+        
+
+        marker_9641ae472c2a6aca16cc870f8f733e84.bindPopup(popup_6da25e691bcc727e31f3d7ac35e4efe8)
+        ;
+
+        
+    
+    
+            marker_9641ae472c2a6aca16cc870f8f733e84.bindTooltip(
+                `<div>
+                     Killed: 8, Injured: 50
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ad12ee1dc5cba83db54773d7e8b9c075 = L.marker(
+                [24.2738513, 89.9375911],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_31ce4b5d2231b0185c5ac8ab9f2458fa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7eb19efbe8c188ce02febfa37ab2f691 = $(`<div id="html_7eb19efbe8c188ce02febfa37ab2f691" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 17-Jan-03<br>         <b>Location:</b> Tangail<br>         <b>Target/Event:</b> Fila Pagla's Shrine<br>         <b>Killed:</b> 7<br>         <b>Injured:</b> 10<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb explosion at a religious shrine, affecting pilgrims.         </div>`)[0];
+                popup_31ce4b5d2231b0185c5ac8ab9f2458fa.setContent(html_7eb19efbe8c188ce02febfa37ab2f691);
+            
+        
+
+        marker_ad12ee1dc5cba83db54773d7e8b9c075.bindPopup(popup_31ce4b5d2231b0185c5ac8ab9f2458fa)
+        ;
+
+        
+    
+    
+            marker_ad12ee1dc5cba83db54773d7e8b9c075.bindTooltip(
+                `<div>
+                     Killed: 7, Injured: 10
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6abd64d374d63f380094112531879a65 = L.marker(
+                [24.87571, 91.8562],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_b3ec9f14b8f473f4a1b910bf1f12c566 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f4d637c36658a6babd366f06ed3a6973 = $(`<div id="html_f4d637c36658a6babd366f06ed3a6973" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 25-Mar-17<br>         <b>Location:</b> South Surma<br>         <b>Target/Event:</b> Suspected Terrorist Hideout<br>         <b>Killed:</b> 6<br>         <b>Injured:</b> 40<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_b3ec9f14b8f473f4a1b910bf1f12c566.setContent(html_f4d637c36658a6babd366f06ed3a6973);
+            
+        
+
+        marker_6abd64d374d63f380094112531879a65.bindPopup(popup_b3ec9f14b8f473f4a1b910bf1f12c566)
+        ;
+
+        
+    
+    
+            marker_6abd64d374d63f380094112531879a65.bindTooltip(
+                `<div>
+                     Killed: 6, Injured: 40
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_47d9d3d9a47f5d2b20c2767df87fc3d5 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_13f1347c4112f468ab5345906000dc48 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f8e89a2bb9e56d35933bf09185b27a5 = $(`<div id="html_5f8e89a2bb9e56d35933bf09185b27a5" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 20-Jan-01<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Communist Party Rally<br>         <b>Killed:</b> 5<br>         <b>Injured:</b> 70<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack on a  Communist Party rally, illustrating political violence.         </div>`)[0];
+                popup_13f1347c4112f468ab5345906000dc48.setContent(html_5f8e89a2bb9e56d35933bf09185b27a5);
+            
+        
+
+        marker_47d9d3d9a47f5d2b20c2767df87fc3d5.bindPopup(popup_13f1347c4112f468ab5345906000dc48)
+        ;
+
+        
+    
+    
+            marker_47d9d3d9a47f5d2b20c2767df87fc3d5.bindTooltip(
+                `<div>
+                     Killed: 5, Injured: 70
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5b5015d00ec58382166bcf6f59b67c0d = L.marker(
+                [25.107295734418585, 89.00099078158605],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_3c4971e3013ea39b6f4d2c9bb0110047 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c1647eb2d90acc5ec3e546b6b5bfc3a = $(`<div id="html_0c1647eb2d90acc5ec3e546b6b5bfc3a" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 22-Jan-03<br>         <b>Location:</b> Joypurhat<br>         <b>Target/Event:</b> Kalai Khana Pir's Shrine (5 Servants)<br>         <b>Killed:</b> 5<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Servants at a shrine were beheaded in an extremist attack.         </div>`)[0];
+                popup_3c4971e3013ea39b6f4d2c9bb0110047.setContent(html_0c1647eb2d90acc5ec3e546b6b5bfc3a);
+            
+        
+
+        marker_5b5015d00ec58382166bcf6f59b67c0d.bindPopup(popup_3c4971e3013ea39b6f4d2c9bb0110047)
+        ;
+
+        
+    
+    
+            marker_5b5015d00ec58382166bcf6f59b67c0d.bindTooltip(
+                `<div>
+                     Killed: 5, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2fbf9ca89c5c06ac7aa1336451415710 = L.marker(
+                [24.3746027, 91.41402723390942],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_70e28c8d10c819c8930e98625949dea5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e51cf1b3d6429564a48740865c4ca5bc = $(`<div id="html_e51cf1b3d6429564a48740865c4ca5bc" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 27-Jan-05<br>         <b>Location:</b> Habiganj<br>         <b>Target/Event:</b> Awami League Rally - Shah AMS Kibria<br>         <b>Killed:</b> 5<br>         <b>Injured:</b> 50<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack targeting former Finance Minister Shah AMS Kibria at an Awami League rally.         </div>`)[0];
+                popup_70e28c8d10c819c8930e98625949dea5.setContent(html_e51cf1b3d6429564a48740865c4ca5bc);
+            
+        
+
+        marker_2fbf9ca89c5c06ac7aa1336451415710.bindPopup(popup_70e28c8d10c819c8930e98625949dea5)
+        ;
+
+        
+    
+    
+            marker_2fbf9ca89c5c06ac7aa1336451415710.bindTooltip(
+                `<div>
+                     Killed: 5, Injured: 50
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c741e689d8e701b6ba7657f89dde9927 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_680ee7db6b013216174133c9ea293772 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16bf226b81eb9f6c6a7abdbf403ccf7d = $(`<div id="html_16bf226b81eb9f6c6a7abdbf403ccf7d" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 21-Dec-13<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Lutfar Rahman Faruqi and 4 Followers<br>         <b>Killed:</b> 5<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Killed by a JMB brigade, targeting perceived heretics.         </div>`)[0];
+                popup_680ee7db6b013216174133c9ea293772.setContent(html_16bf226b81eb9f6c6a7abdbf403ccf7d);
+            
+        
+
+        marker_c741e689d8e701b6ba7657f89dde9927.bindPopup(popup_680ee7db6b013216174133c9ea293772)
+        ;
+
+        
+    
+    
+            marker_c741e689d8e701b6ba7657f89dde9927.bindTooltip(
+                `<div>
+                     Killed: 5, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9b77963fefba3d6a29d5ad6f225b61f2 = L.marker(
+                [25.0671031, 91.3985824],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_e5e090a0b140a94fa4e04775b13e21ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfb889754cba2b92e5dfa5915ae30241 = $(`<div id="html_dfb889754cba2b92e5dfa5915ae30241" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 26-Sep-01<br>         <b>Location:</b> Sunamganj<br>         <b>Target/Event:</b> Awami League Rally<br>         <b>Killed:</b> 4<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Another bomb attack on an Awami League event, with fatalities.         </div>`)[0];
+                popup_e5e090a0b140a94fa4e04775b13e21ee.setContent(html_dfb889754cba2b92e5dfa5915ae30241);
+            
+        
+
+        marker_9b77963fefba3d6a29d5ad6f225b61f2.bindPopup(popup_e5e090a0b140a94fa4e04775b13e21ee)
+        ;
+
+        
+    
+    
+            marker_9b77963fefba3d6a29d5ad6f225b61f2.bindTooltip(
+                `<div>
+                     Killed: 4, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a24f1a84eb43530ce54ba8d3deb79199 = L.marker(
+                [22.7166509, 89.0749857],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_e91a63c32b93b77470f1fbb51ffee215 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_373309478de24c8cd72fab1a7e346400 = $(`<div id="html_373309478de24c8cd72fab1a7e346400" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 28-Sep-02<br>         <b>Location:</b> Satkhira<br>         <b>Target/Event:</b> Cinema Hall & Circus<br>         <b>Killed:</b> 3<br>         <b>Injured:</b> 100<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bombings at entertainment venues to discourage what was considered un-Islamic activities.         </div>`)[0];
+                popup_e91a63c32b93b77470f1fbb51ffee215.setContent(html_373309478de24c8cd72fab1a7e346400);
+            
+        
+
+        marker_a24f1a84eb43530ce54ba8d3deb79199.bindPopup(popup_e91a63c32b93b77470f1fbb51ffee215)
+        ;
+
+        
+    
+    
+            marker_a24f1a84eb43530ce54ba8d3deb79199.bindTooltip(
+                `<div>
+                     Killed: 3, Injured: 100
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_36ad67911fd4ff7cc97af3d8b608e3f6 = L.marker(
+                [24.89922, 91.8685271],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_ee1dad1d0bc530ec0a246ddb96107b05 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ecff2fadb401136d778918379194974 = $(`<div id="html_1ecff2fadb401136d778918379194974" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 12-Jan-04<br>         <b>Location:</b> Sylhet<br>         <b>Target/Event:</b> Shah Jalal Shrine<br>         <b>Killed:</b> 3<br>         <b>Injured:</b> 50<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack at the sacred Shah Jalal Shrine, causing deaths and injuries.         </div>`)[0];
+                popup_ee1dad1d0bc530ec0a246ddb96107b05.setContent(html_1ecff2fadb401136d778918379194974);
+            
+        
+
+        marker_36ad67911fd4ff7cc97af3d8b608e3f6.bindPopup(popup_ee1dad1d0bc530ec0a246ddb96107b05)
+        ;
+
+        
+    
+    
+            marker_36ad67911fd4ff7cc97af3d8b608e3f6.bindTooltip(
+                `<div>
+                     Killed: 3, Injured: 50
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e52b2c3d6f370d70db510c8323bc8ec9 = L.marker(
+                [24.89922, 91.8685271],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_4771e03588dd571b9c5cc970c9d9874a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_afe3297f1747cd16dec15349fb3788e7 = $(`<div id="html_afe3297f1747cd16dec15349fb3788e7" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 21-May-04<br>         <b>Location:</b> Sylhet<br>         <b>Target/Event:</b> British High Commissioner (Shah Jalal Shrine)<br>         <b>Killed:</b> 3<br>         <b>Injured:</b> 70<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Attack during a visit to Shah Jalal Shrine by British High Commissioner Anwar Choudhury.         </div>`)[0];
+                popup_4771e03588dd571b9c5cc970c9d9874a.setContent(html_afe3297f1747cd16dec15349fb3788e7);
+            
+        
+
+        marker_e52b2c3d6f370d70db510c8323bc8ec9.bindPopup(popup_4771e03588dd571b9c5cc970c9d9874a)
+        ;
+
+        
+    
+    
+            marker_e52b2c3d6f370d70db510c8323bc8ec9.bindTooltip(
+                `<div>
+                     Killed: 3, Injured: 70
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_462896e0cd039bea1b5fe21125e7f2f8 = L.marker(
+                [24.89922, 91.8685271],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_b0caecf3862b3ac7c6f9e7fcd7e1eaa8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ebb4108e619e4337571ad7986dfbcfe9 = $(`<div id="html_ebb4108e619e4337571ad7986dfbcfe9" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 30-Oct-09<br>         <b>Location:</b> Sylhet<br>         <b>Target/Event:</b> Shah Jalal Shrine<br>         <b>Killed:</b> 3<br>         <b>Injured:</b> 30<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Another bomb attack at the Shah Jalal Shrine, showing persistent threats to religious sites.         </div>`)[0];
+                popup_b0caecf3862b3ac7c6f9e7fcd7e1eaa8.setContent(html_ebb4108e619e4337571ad7986dfbcfe9);
+            
+        
+
+        marker_462896e0cd039bea1b5fe21125e7f2f8.bindPopup(popup_b0caecf3862b3ac7c6f9e7fcd7e1eaa8)
+        ;
+
+        
+    
+    
+            marker_462896e0cd039bea1b5fe21125e7f2f8.bindTooltip(
+                `<div>
+                     Killed: 3, Injured: 30
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_36b9b0b4302ea00c9e8e73ba1ec61d01 = L.marker(
+                [24.89922, 91.8685271],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_22679ca1905b3be7579b422d29d5f24a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_48fb69f0ee34b0a46b9f0cc38231bc05 = $(`<div id="html_48fb69f0ee34b0a46b9f0cc38231bc05" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 15-Mar-99<br>         <b>Location:</b> Sylhet<br>         <b>Target/Event:</b> Awami League MP Mahibor Rahman Manik's House<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack targeting the residence of MP Mahibor Rahman Manik, resulting in two deaths.         </div>`)[0];
+                popup_22679ca1905b3be7579b422d29d5f24a.setContent(html_48fb69f0ee34b0a46b9f0cc38231bc05);
+            
+        
+
+        marker_36b9b0b4302ea00c9e8e73ba1ec61d01.bindPopup(popup_22679ca1905b3be7579b422d29d5f24a)
+        ;
+
+        
+    
+    
+            marker_36b9b0b4302ea00c9e8e73ba1ec61d01.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7cc8ef97264fc4cac9e34f5181c82636 = L.marker(
+                [22.9372087, 89.2852741],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_b1788f2d2ff60756a79c0c87626e57cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff6c4534cbb414bd98f54248e64ab023 = $(`<div id="html_ff6c4534cbb414bd98f54248e64ab023" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 11-Mar-03<br>         <b>Location:</b> Khulna<br>         <b>Target/Event:</b> Police Constables<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack targeting police constables, part of a pattern against law enforcement.         </div>`)[0];
+                popup_b1788f2d2ff60756a79c0c87626e57cf.setContent(html_ff6c4534cbb414bd98f54248e64ab023);
+            
+        
+
+        marker_7cc8ef97264fc4cac9e34f5181c82636.bindPopup(popup_b1788f2d2ff60756a79c0c87626e57cf)
+        ;
+
+        
+    
+    
+            marker_7cc8ef97264fc4cac9e34f5181c82636.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3021e76ae5f400ec88109f0d28770284 = L.marker(
+                [25.0671031, 91.3985824],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_30873148f26322cb6964a47156361ccb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2c1bc9b56851f572c88b9aba35d7c152 = $(`<div id="html_2c1bc9b56851f572c88b9aba35d7c152" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 21-Jun-04<br>         <b>Location:</b> Sunamganj<br>         <b>Target/Event:</b> Awami League Rally - Suranjit Sengupta<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 50<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> High-profile attack on Suranjit Sengupta during an Awami League rally.         </div>`)[0];
+                popup_30873148f26322cb6964a47156361ccb.setContent(html_2c1bc9b56851f572c88b9aba35d7c152);
+            
+        
+
+        marker_3021e76ae5f400ec88109f0d28770284.bindPopup(popup_30873148f26322cb6964a47156361ccb)
+        ;
+
+        
+    
+    
+            marker_3021e76ae5f400ec88109f0d28770284.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 50
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3ddbd062130c40c555a841a69ce44fac = L.marker(
+                [22.5623905, 90.17429268473444],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_b45e837a74228acdbc87f1f08a1f7dc9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f7f662951e8da3ea9caffcf16a5c841f = $(`<div id="html_f7f662951e8da3ea9caffcf16a5c841f" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 14-Nov-05<br>         <b>Location:</b> Jhalakathi<br>         <b>Target/Event:</b> Judges<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 3<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Assassination of two judges, further intimidating the legal system.         </div>`)[0];
+                popup_b45e837a74228acdbc87f1f08a1f7dc9.setContent(html_f7f662951e8da3ea9caffcf16a5c841f);
+            
+        
+
+        marker_3ddbd062130c40c555a841a69ce44fac.bindPopup(popup_b45e837a74228acdbc87f1f08a1f7dc9)
+        ;
+
+        
+    
+    
+            marker_3ddbd062130c40c555a841a69ce44fac.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e876efce9abbc7ec44a93f92384232f1 = L.marker(
+                [22.333778, 91.8344348],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_44a67b00f8ca3b8b9688e696260db22b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_072608d84da44c1bca09997529bbddf1 = $(`<div id="html_072608d84da44c1bca09997529bbddf1" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 29-Nov-05<br>         <b>Location:</b> Chittagong<br>         <b>Target/Event:</b> Police<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 16<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Attack on police, part of ongoing violence against law enforcement.         </div>`)[0];
+                popup_44a67b00f8ca3b8b9688e696260db22b.setContent(html_072608d84da44c1bca09997529bbddf1);
+            
+        
+
+        marker_e876efce9abbc7ec44a93f92384232f1.bindPopup(popup_44a67b00f8ca3b8b9688e696260db22b)
+        ;
+
+        
+    
+    
+            marker_e876efce9abbc7ec44a93f92384232f1.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 16
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1cb9be2d87d1c3b3ee2b4260f8a4bd8f = L.marker(
+                [23.9997558, 90.4173629],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_812b45ec5bacabe9f64c93a8d1739561 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f38ab5f4b6f46e1af70da044b5964e81 = $(`<div id="html_f38ab5f4b6f46e1af70da044b5964e81" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 01-Dec-05<br>         <b>Location:</b> Gazipur<br>         <b>Target/Event:</b> District Administrator Office<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 25<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Suicide bombing at a government office, targeting officials.         </div>`)[0];
+                popup_812b45ec5bacabe9f64c93a8d1739561.setContent(html_f38ab5f4b6f46e1af70da044b5964e81);
+            
+        
+
+        marker_1cb9be2d87d1c3b3ee2b4260f8a4bd8f.bindPopup(popup_812b45ec5bacabe9f64c93a8d1739561)
+        ;
+
+        
+    
+    
+            marker_1cb9be2d87d1c3b3ee2b4260f8a4bd8f.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 25
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0d66292e2856c447812a020043ac3bf5 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_f7d9a759d70a9a75f822d8f3cef85023 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2b146eef62f72fd2109d1b5f02e6830 = $(`<div id="html_b2b146eef62f72fd2109d1b5f02e6830" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 23-Oct-15<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Hussni Dalan - Tajia Rally<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 60<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Bombing during a Shia mourning procession, targeting religious minorities.         </div>`)[0];
+                popup_f7d9a759d70a9a75f822d8f3cef85023.setContent(html_b2b146eef62f72fd2109d1b5f02e6830);
+            
+        
+
+        marker_0d66292e2856c447812a020043ac3bf5.bindPopup(popup_f7d9a759d70a9a75f822d8f3cef85023)
+        ;
+
+        
+    
+    
+            marker_0d66292e2856c447812a020043ac3bf5.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 60
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0b525394f576a380b4a1dce1936afc64 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_6873d0b3e884f346361367fe454890a5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_edae292b9f9a8cad5ef5e27064bdeba9 = $(`<div id="html_edae292b9f9a8cad5ef5e27064bdeba9" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 31-Oct-15<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Faisal Arefin Dipan & Ahmedur Rashid Chowdhury (Tutul)<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Publishers killed for their work with secular literature, part of systematic targeting.         </div>`)[0];
+                popup_6873d0b3e884f346361367fe454890a5.setContent(html_edae292b9f9a8cad5ef5e27064bdeba9);
+            
+        
+
+        marker_0b525394f576a380b4a1dce1936afc64.bindPopup(popup_6873d0b3e884f346361367fe454890a5)
+        ;
+
+        
+    
+    
+            marker_0b525394f576a380b4a1dce1936afc64.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ab6f39bc0af9d58dffaf6a3fe4c6b6bb = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_7858739bf49d169748ebbf50d5fece0f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c14bb97fdd22e1fe969cd95cbc77581 = $(`<div id="html_7c14bb97fdd22e1fe969cd95cbc77581" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 25-Apr-16<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> LGBTQ Activist Xulhaz Mannan & Tonoy<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 1<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_7858739bf49d169748ebbf50d5fece0f.setContent(html_7c14bb97fdd22e1fe969cd95cbc77581);
+            
+        
+
+        marker_ab6f39bc0af9d58dffaf6a3fe4c6b6bb.bindPopup(popup_7858739bf49d169748ebbf50d5fece0f)
+        ;
+
+        
+    
+    
+            marker_ab6f39bc0af9d58dffaf6a3fe4c6b6bb.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_80e084e22445114bf3f672b85a78debc = L.marker(
+                [23.8987955, 89.1295536],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_ffd18065d127d28584b93380f598359d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d392af503a50aa265d8dcf8e995d5b2 = $(`<div id="html_4d392af503a50aa265d8dcf8e995d5b2" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 21-May-16<br>         <b>Location:</b> Kushtia<br>         <b>Target/Event:</b> Homeopath Dr. Sanaur Rahman & Saifuzzaman<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 1<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Dr. Sanaur Rahman & a boy was killed         </div>`)[0];
+                popup_ffd18065d127d28584b93380f598359d.setContent(html_4d392af503a50aa265d8dcf8e995d5b2);
+            
+        
+
+        marker_80e084e22445114bf3f672b85a78debc.bindPopup(popup_ffd18065d127d28584b93380f598359d)
+        ;
+
+        
+    
+    
+            marker_80e084e22445114bf3f672b85a78debc.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a5673dc996f9235c8bdf94fad145da9a = L.marker(
+                [25.6260712, 88.6346228],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_f8538422857b849178bcba2f5259c266 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b9c42c3bdd41088c99e4328e81eae234 = $(`<div id="html_b9c42c3bdd41088c99e4328e81eae234" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 14-Mar-17<br>         <b>Location:</b> Dinajpur<br>         <b>Target/Event:</b> Sufi Spiritual Leader and Daughter<br>         <b>Killed:</b> 2<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Shooting and stabbing attack         </div>`)[0];
+                popup_f8538422857b849178bcba2f5259c266.setContent(html_b9c42c3bdd41088c99e4328e81eae234);
+            
+        
+
+        marker_a5673dc996f9235c8bdf94fad145da9a.bindPopup(popup_f8538422857b849178bcba2f5259c266)
+        ;
+
+        
+    
+    
+            marker_a5673dc996f9235c8bdf94fad145da9a.bindTooltip(
+                `<div>
+                     Killed: 2, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_48f65a88ac980bd0562ccab9e6354047 = L.marker(
+                [22.9372087, 89.2852741],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_6db1a28f6874187b5b0349a5a85e12ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_47602aaca9d9af01992ccaa855b5d6fd = $(`<div id="html_47602aaca9d9af01992ccaa855b5d6fd" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 1-Mar-03<br>         <b>Location:</b> Khulna<br>         <b>Target/Event:</b> Police Sergeant<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Targeted killing of a police sergeant with a bomb.         </div>`)[0];
+                popup_6db1a28f6874187b5b0349a5a85e12ab.setContent(html_47602aaca9d9af01992ccaa855b5d6fd);
+            
+        
+
+        marker_48f65a88ac980bd0562ccab9e6354047.bindPopup(popup_6db1a28f6874187b5b0349a5a85e12ab)
+        ;
+
+        
+    
+    
+            marker_48f65a88ac980bd0562ccab9e6354047.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f13679dc5ff7116f41cc2a3d48ff0819 = L.marker(
+                [22.9372087, 89.2852741],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_4b6977a070a5749beba0c244c43b4b2f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_58b6b78c2803aa92b09ff42bd57a475b = $(`<div id="html_58b6b78c2803aa92b09ff42bd57a475b" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 12-Mar-03<br>         <b>Location:</b> Khulna<br>         <b>Target/Event:</b> Police Sub-Inspector<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Another attack on a police sub-inspector with a bomb.         </div>`)[0];
+                popup_4b6977a070a5749beba0c244c43b4b2f.setContent(html_58b6b78c2803aa92b09ff42bd57a475b);
+            
+        
+
+        marker_f13679dc5ff7116f41cc2a3d48ff0819.bindPopup(popup_4b6977a070a5749beba0c244c43b4b2f)
+        ;
+
+        
+    
+    
+            marker_f13679dc5ff7116f41cc2a3d48ff0819.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8a81a26c52813209cf864bf7881d5824 = L.marker(
+                [24.4769288, 90.2934413],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_f366c30b230077a99df5bb2e528a26c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d746b21885fe89978fa9dbfed9967987 = $(`<div id="html_d746b21885fe89978fa9dbfed9967987" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 6-Sep-03<br>         <b>Location:</b> -<br>         <b>Target/Event:</b> Awami League Leader<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack on an Awami League leader, part of ongoing political violence.         </div>`)[0];
+                popup_f366c30b230077a99df5bb2e528a26c6.setContent(html_d746b21885fe89978fa9dbfed9967987);
+            
+        
+
+        marker_8a81a26c52813209cf864bf7881d5824.bindPopup(popup_f366c30b230077a99df5bb2e528a26c6)
+        ;
+
+        
+    
+    
+            marker_8a81a26c52813209cf864bf7881d5824.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_af5ed554f9b2abb9e013d636b0f439ec = L.marker(
+                [23.0446124, 88.9040591],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_d78dbc0f9f2ef1bd437a5c4c2f35a56d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a6ffc8cf93160f9705243088066717f5 = $(`<div id="html_a6ffc8cf93160f9705243088066717f5" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 13-Jan-04<br>         <b>Location:</b> Benapole<br>         <b>Target/Event:</b> Awami League Leader Fazlur Rahman<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 6<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack targeting Awami League leader Fazlur Rahman, escalating political tension.         </div>`)[0];
+                popup_d78dbc0f9f2ef1bd437a5c4c2f35a56d.setContent(html_a6ffc8cf93160f9705243088066717f5);
+            
+        
+
+        marker_af5ed554f9b2abb9e013d636b0f439ec.bindPopup(popup_d78dbc0f9f2ef1bd437a5c4c2f35a56d)
+        ;
+
+        
+    
+    
+            marker_af5ed554f9b2abb9e013d636b0f439ec.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_35e01277099d7bbcafd42f5989488a53 = L.marker(
+                [23.6236732, 90.4988075],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_cea0991221b4c3cbb8304bc732646987 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e48ac95fae47b73c6fb0f901da64b9d = $(`<div id="html_9e48ac95fae47b73c6fb0f901da64b9d" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 4-Mar-04<br>         <b>Location:</b> Narayanganj<br>         <b>Target/Event:</b> Awami League Leader<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Assassinated Awami League leader, showing targeted political violence.         </div>`)[0];
+                popup_cea0991221b4c3cbb8304bc732646987.setContent(html_9e48ac95fae47b73c6fb0f901da64b9d);
+            
+        
+
+        marker_35e01277099d7bbcafd42f5989488a53.bindPopup(popup_cea0991221b4c3cbb8304bc732646987)
+        ;
+
+        
+    
+    
+            marker_35e01277099d7bbcafd42f5989488a53.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_beaf548e906f9b573d6e2ed40e7547ed = L.marker(
+                [22.6554781, 89.7941813],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_ae4189418ec3befa255aaaae41132088 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_052751e6cd67660abd13d79cb6923748 = $(`<div id="html_052751e6cd67660abd13d79cb6923748" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 4-Mar-04<br>         <b>Location:</b> Bagerhat<br>         <b>Target/Event:</b> Awami League Leader<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 3<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attacks on Awami League members, further political targeting.         </div>`)[0];
+                popup_ae4189418ec3befa255aaaae41132088.setContent(html_052751e6cd67660abd13d79cb6923748);
+            
+        
+
+        marker_beaf548e906f9b573d6e2ed40e7547ed.bindPopup(popup_ae4189418ec3befa255aaaae41132088)
+        ;
+
+        
+    
+    
+            marker_beaf548e906f9b573d6e2ed40e7547ed.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a98a290b41dae38af6bd3283bd10b944 = L.marker(
+                [24.89922, 91.8685271],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_85a22321a413d889e2dbad5e7a381c12 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a6d03fed635adaaba3d40fbd33731e68 = $(`<div id="html_a6d03fed635adaaba3d40fbd33731e68" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 4-Aug-04<br>         <b>Location:</b> Sylhet<br>         <b>Target/Event:</b> Rangmahal and Monica Cinemas<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 10<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attacks on cinemas, targeting cultural entertainment.         </div>`)[0];
+                popup_85a22321a413d889e2dbad5e7a381c12.setContent(html_a6d03fed635adaaba3d40fbd33731e68);
+            
+        
+
+        marker_a98a290b41dae38af6bd3283bd10b944.bindPopup(popup_85a22321a413d889e2dbad5e7a381c12)
+        ;
+
+        
+    
+    
+            marker_a98a290b41dae38af6bd3283bd10b944.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 10
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0ff06f6a24d8df2a8531ac84d067326b = L.marker(
+                [24.89922, 91.8685271],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_ee9a367b9064308e7d9cad221663963b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57d868989dcf6609aae89969cd700094 = $(`<div id="html_57d868989dcf6609aae89969cd700094" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 07-Aug-04<br>         <b>Location:</b> Sylhet<br>         <b>Target/Event:</b> Awami League Rally<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 40<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack on another Awami League rally.         </div>`)[0];
+                popup_ee9a367b9064308e7d9cad221663963b.setContent(html_57d868989dcf6609aae89969cd700094);
+            
+        
+
+        marker_0ff06f6a24d8df2a8531ac84d067326b.bindPopup(popup_ee9a367b9064308e7d9cad221663963b)
+        ;
+
+        
+    
+    
+            marker_0ff06f6a24d8df2a8531ac84d067326b.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 40
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_50d39307c24d5e26c1823f446b9b11f6 = L.marker(
+                [24.9255866, 89.9436684],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_c5c1601f859e1e72bae64e08f7e8217a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1e1093e464d34685814ca6e4f901aa6 = $(`<div id="html_e1e1093e464d34685814ca6e4f901aa6" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 18-Sep-04<br>         <b>Location:</b> Jamalpur<br>         <b>Target/Event:</b> Gani Gomez (Josem Mandal)<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Killed for apostasy, accused of converting others from Islam.         </div>`)[0];
+                popup_c5c1601f859e1e72bae64e08f7e8217a.setContent(html_e1e1093e464d34685814ca6e4f901aa6);
+            
+        
+
+        marker_50d39307c24d5e26c1823f446b9b11f6.bindPopup(popup_c5c1601f859e1e72bae64e08f7e8217a)
+        ;
+
+        
+    
+    
+            marker_50d39307c24d5e26c1823f446b9b11f6.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e21d2dbe2e77aa90abf3b7af4e129f12 = L.marker(
+                [24.2738513, 89.9375911],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_f8fcc79ff15dc88a11671ff26a420b93 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf406cbe3025f0ac6037ab8986aeac66 = $(`<div id="html_cf406cbe3025f0ac6037ab8986aeac66" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 23-Nov-04<br>         <b>Location:</b> Tangail<br>         <b>Target/Event:</b> Homeopath Dr. Moniruzzaman<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Dr. Moniruzzaman was killed for his book "Meye Tumi Manush Chhile Kobe," which was seen as blasphemous by extremists.         </div>`)[0];
+                popup_f8fcc79ff15dc88a11671ff26a420b93.setContent(html_cf406cbe3025f0ac6037ab8986aeac66);
+            
+        
+
+        marker_e21d2dbe2e77aa90abf3b7af4e129f12.bindPopup(popup_f8fcc79ff15dc88a11671ff26a420b93)
+        ;
+
+        
+    
+    
+            marker_e21d2dbe2e77aa90abf3b7af4e129f12.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a71ac822bdffa81d39e77e19653801cb = L.marker(
+                [24.6285432, 89.0376862],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_2561f10202c5559febd928b4b8e0f783 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_424b36727bb3908d801d9f3d85d96f38 = $(`<div id="html_424b36727bb3908d801d9f3d85d96f38" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 24-Dec-04<br>         <b>Location:</b> Rajshahi<br>         <b>Target/Event:</b> Professor Yunus, RU<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Assassination of Professor Mohammad Yunus, an academic known for his liberal views.         </div>`)[0];
+                popup_2561f10202c5559febd928b4b8e0f783.setContent(html_424b36727bb3908d801d9f3d85d96f38);
+            
+        
+
+        marker_a71ac822bdffa81d39e77e19653801cb.bindPopup(popup_2561f10202c5559febd928b4b8e0f783)
+        ;
+
+        
+    
+    
+            marker_a71ac822bdffa81d39e77e19653801cb.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8788df5dfd0fcd75c67e244bb7f5a917 = L.marker(
+                [24.9255866, 89.9436684],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_3694283c118feddde4febf49ef9ddafd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c24c7f3de325fb45601a6fcd11810362 = $(`<div id="html_c24c7f3de325fb45601a6fcd11810362" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 14-Apr-05<br>         <b>Location:</b> Jamalpur<br>         <b>Target/Event:</b> Hridoy Roy (Christian Convert)<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Hridoy Roy was killed for converting others to Christianity, highlighting religious persecution.         </div>`)[0];
+                popup_3694283c118feddde4febf49ef9ddafd.setContent(html_c24c7f3de325fb45601a6fcd11810362);
+            
+        
+
+        marker_8788df5dfd0fcd75c67e244bb7f5a917.bindPopup(popup_3694283c118feddde4febf49ef9ddafd)
+        ;
+
+        
+    
+    
+            marker_8788df5dfd0fcd75c67e244bb7f5a917.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8e04f428b5b9f083b0279b333e804760 = L.marker(
+                [22.9445365, 90.8276345],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_3ca4bd1946fc4d31c3c4dd1d1eaf4158 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e20d2a111b0d6ce9630e4d5484f73cd8 = $(`<div id="html_e20d2a111b0d6ce9630e4d5484f73cd8" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 03-Oct-05<br>         <b>Location:</b> Lakshmipur<br>         <b>Target/Event:</b> Judges<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 28<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Attack on judges, part of a campaign to intimidate the judiciary.         </div>`)[0];
+                popup_3ca4bd1946fc4d31c3c4dd1d1eaf4158.setContent(html_e20d2a111b0d6ce9630e4d5484f73cd8);
+            
+        
+
+        marker_8e04f428b5b9f083b0279b333e804760.bindPopup(popup_3ca4bd1946fc4d31c3c4dd1d1eaf4158)
+        ;
+
+        
+    
+    
+            marker_8e04f428b5b9f083b0279b333e804760.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 28
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1e5d2805bf4326904512d3f8275a896e = L.marker(
+                [23.2241763, 90.6531005],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_a06aac35bcc99b65810aeece087ec9b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e47ff1327918b34baf0b32190660489 = $(`<div id="html_7e47ff1327918b34baf0b32190660489" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 03-Oct-05<br>         <b>Location:</b> Chandpur<br>         <b>Target/Event:</b> Judges<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 6<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Another attack targeting  judicial officials.         </div>`)[0];
+                popup_a06aac35bcc99b65810aeece087ec9b4.setContent(html_7e47ff1327918b34baf0b32190660489);
+            
+        
+
+        marker_1e5d2805bf4326904512d3f8275a896e.bindPopup(popup_a06aac35bcc99b65810aeece087ec9b4)
+        ;
+
+        
+    
+    
+            marker_1e5d2805bf4326904512d3f8275a896e.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c917179bf6212d4862eb2e7c4935cf6e = L.marker(
+                [22.5623905, 90.17429268473444],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_a6ea62db1e8a43e996a7ce0c2537f709 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9fe763f6a4267120595aed9de1afcccf = $(`<div id="html_9fe763f6a4267120595aed9de1afcccf" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 11-Apr-07<br>         <b>Location:</b> Jhalakathi<br>         <b>Target/Event:</b> Public Prosecutor Haider<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Assassination of Public Prosecutor Haider Hussain, shortly after the execution of a JMB leader.         </div>`)[0];
+                popup_a6ea62db1e8a43e996a7ce0c2537f709.setContent(html_9fe763f6a4267120595aed9de1afcccf);
+            
+        
+
+        marker_c917179bf6212d4862eb2e7c4935cf6e.bindPopup(popup_a6ea62db1e8a43e996a7ce0c2537f709)
+        ;
+
+        
+    
+    
+            marker_c917179bf6212d4862eb2e7c4935cf6e.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_143d12cd3aea8c01734499d101ee217e = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_b91b9979db151d3a79fc2ed75119158d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f627fbe368bccb1bdd7330b8ce927a3 = $(`<div id="html_0f627fbe368bccb1bdd7330b8ce927a3" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 15-Feb-13<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Ahmed Rajib Haider<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Ahmed Rajib Haider, a blogger critical of religious extremism, was assassinated.         </div>`)[0];
+                popup_b91b9979db151d3a79fc2ed75119158d.setContent(html_0f627fbe368bccb1bdd7330b8ce927a3);
+            
+        
+
+        marker_143d12cd3aea8c01734499d101ee217e.bindPopup(popup_b91b9979db151d3a79fc2ed75119158d)
+        ;
+
+        
+    
+    
+            marker_143d12cd3aea8c01734499d101ee217e.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3a70fc4ac4c96536a21458008c76f519 = L.marker(
+                [24.6285432, 89.0376862],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_9d958a8ddc8b59f68513ac4dc3fe90b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_865bdc8e1760e51ec052559235c9db46 = $(`<div id="html_865bdc8e1760e51ec052559235c9db46" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 15-Nov-13<br>         <b>Location:</b> Rajshahi<br>         <b>Target/Event:</b> Shafiul Islam<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Professor killed for enforcing a burka ban, indicating resistance to religious enforcement.         </div>`)[0];
+                popup_9d958a8ddc8b59f68513ac4dc3fe90b5.setContent(html_865bdc8e1760e51ec052559235c9db46);
+            
+        
+
+        marker_3a70fc4ac4c96536a21458008c76f519.bindPopup(popup_9d958a8ddc8b59f68513ac4dc3fe90b5)
+        ;
+
+        
+    
+    
+            marker_3a70fc4ac4c96536a21458008c76f519.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_aaa58a30975ebf17fa96f95512885e14 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_1e07a17b96426d6f04f05cb8b8e88141 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_93be5330d7b81467a69214ef0a76e10e = $(`<div id="html_93be5330d7b81467a69214ef0a76e10e" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 27-Aug-14<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Nurul Islam Faruqi (TV Presenter)<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Assassinated for promoting shrine culture, against JMB's ideology.         </div>`)[0];
+                popup_1e07a17b96426d6f04f05cb8b8e88141.setContent(html_93be5330d7b81467a69214ef0a76e10e);
+            
+        
+
+        marker_aaa58a30975ebf17fa96f95512885e14.bindPopup(popup_1e07a17b96426d6f04f05cb8b8e88141)
+        ;
+
+        
+    
+    
+            marker_aaa58a30975ebf17fa96f95512885e14.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0ddf9d52554ec91837626538beaf8541 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_fd3c88d248c85ea1b1a7bf8a03a41f46 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf221a39504f40d9d8f6d4eb2414391d = $(`<div id="html_cf221a39504f40d9d8f6d4eb2414391d" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 26-Feb-15<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Blogger Avijit Roy<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Assassination of Avijit Roy, known for his critique of religious fundamentalism.         </div>`)[0];
+                popup_fd3c88d248c85ea1b1a7bf8a03a41f46.setContent(html_cf221a39504f40d9d8f6d4eb2414391d);
+            
+        
+
+        marker_0ddf9d52554ec91837626538beaf8541.bindPopup(popup_fd3c88d248c85ea1b1a7bf8a03a41f46)
+        ;
+
+        
+    
+    
+            marker_0ddf9d52554ec91837626538beaf8541.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_78915ef4018e5f10076b3e1b9946c49d = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_cd43a7d992e05ad070e6c79858781b54 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04bd45667f83be8ef81417b32584d166 = $(`<div id="html_04bd45667f83be8ef81417b32584d166" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 30-Mar-15<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Washiqur Rahman<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Another blogger killed for his writings against religious extremism.         </div>`)[0];
+                popup_cd43a7d992e05ad070e6c79858781b54.setContent(html_04bd45667f83be8ef81417b32584d166);
+            
+        
+
+        marker_78915ef4018e5f10076b3e1b9946c49d.bindPopup(popup_cd43a7d992e05ad070e6c79858781b54)
+        ;
+
+        
+    
+    
+            marker_78915ef4018e5f10076b3e1b9946c49d.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0e123da4c2d6913abb166b4d52c461fb = L.marker(
+                [24.89922, 91.8685271],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_d8969d5cee7886481c409889d3d707c0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff58a399a25c0939ad97ec73e1c696cc = $(`<div id="html_ff58a399a25c0939ad97ec73e1c696cc" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 12-May-15<br>         <b>Location:</b> Sylhet<br>         <b>Target/Event:</b> Ananta Bijoy Das<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Writer and blogger murdered, part of a series of attacks on secular voices.         </div>`)[0];
+                popup_d8969d5cee7886481c409889d3d707c0.setContent(html_ff58a399a25c0939ad97ec73e1c696cc);
+            
+        
+
+        marker_0e123da4c2d6913abb166b4d52c461fb.bindPopup(popup_d8969d5cee7886481c409889d3d707c0)
+        ;
+
+        
+    
+    
+            marker_0e123da4c2d6913abb166b4d52c461fb.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_878bfb1b2117795ddf99bb7d4f09ad3c = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_eb39bf9c7fcf6431aee21303ebbec739 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69c020743a2ab09ace99bba8c83c20fb = $(`<div id="html_69c020743a2ab09ace99bba8c83c20fb" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 7-Aug-15<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Niloy Chatterjee<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Blogger killed for his advocacy of secularism and free speech.         </div>`)[0];
+                popup_eb39bf9c7fcf6431aee21303ebbec739.setContent(html_69c020743a2ab09ace99bba8c83c20fb);
+            
+        
+
+        marker_878bfb1b2117795ddf99bb7d4f09ad3c.bindPopup(popup_eb39bf9c7fcf6431aee21303ebbec739)
+        ;
+
+        
+    
+    
+            marker_878bfb1b2117795ddf99bb7d4f09ad3c.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_09b23f8b58a5969f406155b8b7dfab2d = L.marker(
+                [25.6376135, 89.0826381],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_dd73256d1769bd47273bbfa80a83a799 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9e52288cc52cca08283557f7cea474e = $(`<div id="html_e9e52288cc52cca08283557f7cea474e" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 3-Oct-15<br>         <b>Location:</b> Rangpur<br>         <b>Target/Event:</b> Kunio Hoshi<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Japanese agricultural worker killed, claimed by ISIS, targeting foreigners.         </div>`)[0];
+                popup_dd73256d1769bd47273bbfa80a83a799.setContent(html_e9e52288cc52cca08283557f7cea474e);
+            
+        
+
+        marker_09b23f8b58a5969f406155b8b7dfab2d.bindPopup(popup_dd73256d1769bd47273bbfa80a83a799)
+        ;
+
+        
+    
+    
+            marker_09b23f8b58a5969f406155b8b7dfab2d.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_21498ae42bfc8edbb0747f3c03f6d482 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_8e243293ccb3e91dde66e3f9d496808b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a6a7db91f8355438a99feda45b2e6d2 = $(`<div id="html_3a6a7db91f8355438a99feda45b2e6d2" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 5-Oct-15<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Pir Khizir Khan (PDB Chairman)<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Assassination of Pir Khizir Khan, who was seen as a supporter of a secular state.         </div>`)[0];
+                popup_8e243293ccb3e91dde66e3f9d496808b.setContent(html_3a6a7db91f8355438a99feda45b2e6d2);
+            
+        
+
+        marker_21498ae42bfc8edbb0747f3c03f6d482.bindPopup(popup_8e243293ccb3e91dde66e3f9d496808b)
+        ;
+
+        
+    
+    
+            marker_21498ae42bfc8edbb0747f3c03f6d482.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3e0aebb817bb1a640b51b7bc6da4863e = L.marker(
+                [23.5446964, 89.1731943],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_e72698c89456f3a1845335a8593c8a9e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c77467217dc3f71ead97677f8492a3ba = $(`<div id="html_c77467217dc3f71ead97677f8492a3ba" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 15-Mar-16<br>         <b>Location:</b> Jhenaidah<br>         <b>Target/Event:</b> Shia Preacher<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Shia preacher assassinated, claimed by ISIS, highlighting sectarian violence.         </div>`)[0];
+                popup_e72698c89456f3a1845335a8593c8a9e.setContent(html_c77467217dc3f71ead97677f8492a3ba);
+            
+        
+
+        marker_3e0aebb817bb1a640b51b7bc6da4863e.bindPopup(popup_e72698c89456f3a1845335a8593c8a9e)
+        ;
+
+        
+    
+    
+            marker_3e0aebb817bb1a640b51b7bc6da4863e.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c21b52f7a6674566e1d026adcc1b27b8 = L.marker(
+                [23.75461665, 90.3918311157562],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_ce8ea22103974d5ae021fec1f3ec16ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2677ee95ff7adc9e1b6197c6c8dbc2f4 = $(`<div id="html_2677ee95ff7adc9e1b6197c6c8dbc2f4" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 22-Mar-16<br>         <b>Location:</b> Northern Bangladesh<br>         <b>Target/Event:</b> Christian Convert<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Christian convert killed, claimed by ISIS, targeting religious conversion.         </div>`)[0];
+                popup_ce8ea22103974d5ae021fec1f3ec16ea.setContent(html_2677ee95ff7adc9e1b6197c6c8dbc2f4);
+            
+        
+
+        marker_c21b52f7a6674566e1d026adcc1b27b8.bindPopup(popup_ce8ea22103974d5ae021fec1f3ec16ea)
+        ;
+
+        
+    
+    
+            marker_c21b52f7a6674566e1d026adcc1b27b8.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_eb542ca6bdbb82ca362863b2ac1d154b = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_fad9b3a5d9e691b195d8db5baae1bd6a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67314219f0e8a0a2f85597c96f5af49d = $(`<div id="html_67314219f0e8a0a2f85597c96f5af49d" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 6-Apr-16<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Nazimuddin Samad<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Student and blogger killed for his secular and progressive views.         </div>`)[0];
+                popup_fad9b3a5d9e691b195d8db5baae1bd6a.setContent(html_67314219f0e8a0a2f85597c96f5af49d);
+            
+        
+
+        marker_eb542ca6bdbb82ca362863b2ac1d154b.bindPopup(popup_fad9b3a5d9e691b195d8db5baae1bd6a)
+        ;
+
+        
+    
+    
+            marker_eb542ca6bdbb82ca362863b2ac1d154b.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a6e622ad31e0df6cf624ce156d0aebe5 = L.marker(
+                [24.6285432, 89.0376862],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_7d9570f9fab36b731a5376f515242808 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f966efeb51586cfd049c3ef5266f30b = $(`<div id="html_0f966efeb51586cfd049c3ef5266f30b" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 23-Apr-16<br>         <b>Location:</b> Rajshahi<br>         <b>Target/Event:</b> Professor AFM Rezaul Karim Siddique<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_7d9570f9fab36b731a5376f515242808.setContent(html_0f966efeb51586cfd049c3ef5266f30b);
+            
+        
+
+        marker_a6e622ad31e0df6cf624ce156d0aebe5.bindPopup(popup_7d9570f9fab36b731a5376f515242808)
+        ;
+
+        
+    
+    
+            marker_a6e622ad31e0df6cf624ce156d0aebe5.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_407e91945950ae1098c137e3de15b619 = L.marker(
+                [23.9997558, 90.4173629],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_2a9621a9d36a525ff8d2c4cdf850e406 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2688e0fd3254d355caaf94bc7ebde3da = $(`<div id="html_2688e0fd3254d355caaf94bc7ebde3da" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 25-Apr-16<br>         <b>Location:</b> Gazipur<br>         <b>Target/Event:</b> Sergeant Instructor Rustam Howlader<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Killed for enforcing "man-made laws" against jihadists         </div>`)[0];
+                popup_2a9621a9d36a525ff8d2c4cdf850e406.setContent(html_2688e0fd3254d355caaf94bc7ebde3da);
+            
+        
+
+        marker_407e91945950ae1098c137e3de15b619.bindPopup(popup_2a9621a9d36a525ff8d2c4cdf850e406)
+        ;
+
+        
+    
+    
+            marker_407e91945950ae1098c137e3de15b619.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_da4c99152750047e5b9d3a8b6eeed5e1 = L.marker(
+                [24.2738513, 89.9375911],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_cfe9bd8246bc732071396c95effa819b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_978625c80e25ccc659fcaaa373dde224 = $(`<div id="html_978625c80e25ccc659fcaaa373dde224" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 30-Apr-16<br>         <b>Location:</b> Tangail<br>         <b>Target/Event:</b> Hindu Tailor - Nikhil Joarder<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_cfe9bd8246bc732071396c95effa819b.setContent(html_978625c80e25ccc659fcaaa373dde224);
+            
+        
+
+        marker_da4c99152750047e5b9d3a8b6eeed5e1.bindPopup(popup_cfe9bd8246bc732071396c95effa819b)
+        ;
+
+        
+    
+    
+            marker_da4c99152750047e5b9d3a8b6eeed5e1.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3c7863a77ddc7092548452266868c5c3 = L.marker(
+                [24.6285432, 89.0376862],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_43732a771bbe57ec6d65b9f99c5ada36 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f244c511190f0738033124faac2a73b = $(`<div id="html_3f244c511190f0738033124faac2a73b" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 7-May-16<br>         <b>Location:</b> Rajshahi<br>         <b>Target/Event:</b> Shahidullah<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Killed for claiming to ba a prophet          </div>`)[0];
+                popup_43732a771bbe57ec6d65b9f99c5ada36.setContent(html_3f244c511190f0738033124faac2a73b);
+            
+        
+
+        marker_3c7863a77ddc7092548452266868c5c3.bindPopup(popup_43732a771bbe57ec6d65b9f99c5ada36)
+        ;
+
+        
+    
+    
+            marker_3c7863a77ddc7092548452266868c5c3.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a6bc764e8822e043ca6f80db7d0b1de8 = L.marker(
+                [21.787476, 92.41247516698712],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_abac7a2b61703769b3f08511ed482f0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_95b1c0661f66e92ef5a3a28885badf6a = $(`<div id="html_95b1c0661f66e92ef5a3a28885badf6a" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 14-May-16<br>         <b>Location:</b> Bandarban<br>         <b>Target/Event:</b> Buddhist Monk - Maung Shue U Chak<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_abac7a2b61703769b3f08511ed482f0e.setContent(html_95b1c0661f66e92ef5a3a28885badf6a);
+            
+        
+
+        marker_a6bc764e8822e043ca6f80db7d0b1de8.bindPopup(popup_abac7a2b61703769b3f08511ed482f0e)
+        ;
+
+        
+    
+    
+            marker_a6bc764e8822e043ca6f80db7d0b1de8.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_38f62350fdb4b92e315798efca60f78f = L.marker(
+                [25.0860006, 89.8696436],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_d98909c4ebef3247c61a4ce3db49a833 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f2fd55876e5a9f1fb45934f04216ba5 = $(`<div id="html_6f2fd55876e5a9f1fb45934f04216ba5" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 15-May-16<br>         <b>Location:</b> Gaibandha<br>         <b>Target/Event:</b> Debesh Chandra Pramanik<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_d98909c4ebef3247c61a4ce3db49a833.setContent(html_6f2fd55876e5a9f1fb45934f04216ba5);
+            
+        
+
+        marker_38f62350fdb4b92e315798efca60f78f.bindPopup(popup_d98909c4ebef3247c61a4ce3db49a833)
+        ;
+
+        
+    
+    
+            marker_38f62350fdb4b92e315798efca60f78f.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d23b0c5121e23d8885749c91ccb96247 = L.marker(
+                [24.0068082, 89.2448341],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_7a4ae7b214722b4cba294a6efd5200c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c15a253216fb79d8dea319ddbed313d0 = $(`<div id="html_c15a253216fb79d8dea319ddbed313d0" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 10-Jun-16<br>         <b>Location:</b> Pabna<br>         <b>Target/Event:</b> Nityaranjan Pande<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_7a4ae7b214722b4cba294a6efd5200c5.setContent(html_c15a253216fb79d8dea319ddbed313d0);
+            
+        
+
+        marker_d23b0c5121e23d8885749c91ccb96247.bindPopup(popup_7a4ae7b214722b4cba294a6efd5200c5)
+        ;
+
+        
+    
+    
+            marker_d23b0c5121e23d8885749c91ccb96247.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e374aa48c841fabf4b1b9874f66b32e2 = L.marker(
+                [23.1675177, 90.2047265],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_62445a741ad8c10008601ce0ab5e62ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bdabae822a65c5ac6c61717c0118b165 = $(`<div id="html_bdabae822a65c5ac6c61717c0118b165" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 15-Jun-16<br>         <b>Location:</b> Madaripur<br>         <b>Target/Event:</b> Ripon Chakraborty<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 2<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_62445a741ad8c10008601ce0ab5e62ea.setContent(html_bdabae822a65c5ac6c61717c0118b165);
+            
+        
+
+        marker_e374aa48c841fabf4b1b9874f66b32e2.bindPopup(popup_62445a741ad8c10008601ce0ab5e62ea)
+        ;
+
+        
+    
+    
+            marker_e374aa48c841fabf4b1b9874f66b32e2.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d00ca2dc89ef15460babb46330d541ca = L.marker(
+                [22.7166509, 89.0749857],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_1ae551022c2dfd67a8a007f61d59b575 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8963ae1f642d237cb58b63b063f87bf4 = $(`<div id="html_8963ae1f642d237cb58b63b063f87bf4" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 1-Jul-16<br>         <b>Location:</b> Satkhira<br>         <b>Target/Event:</b> Shyamananda Das<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 3<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_1ae551022c2dfd67a8a007f61d59b575.setContent(html_8963ae1f642d237cb58b63b063f87bf4);
+            
+        
+
+        marker_d00ca2dc89ef15460babb46330d541ca.bindPopup(popup_1ae551022c2dfd67a8a007f61d59b575)
+        ;
+
+        
+    
+    
+            marker_d00ca2dc89ef15460babb46330d541ca.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1c35a9fd4b7cd173a31b345125fae467 = L.marker(
+                [21.787476, 92.41247516698712],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_1f88e0e961a54395632f7892ce208615 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_78991bdc3df79cd1b9c30fcd75907833 = $(`<div id="html_78991bdc3df79cd1b9c30fcd75907833" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 2-Jul-16<br>         <b>Location:</b> Bandarban<br>         <b>Target/Event:</b> Buddhist Farme - Mong Shwe Lung Marma<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> a Buddhist farmer and the vice president of ward seven of the Awami league         </div>`)[0];
+                popup_1f88e0e961a54395632f7892ce208615.setContent(html_78991bdc3df79cd1b9c30fcd75907833);
+            
+        
+
+        marker_1c35a9fd4b7cd173a31b345125fae467.bindPopup(popup_1f88e0e961a54395632f7892ce208615)
+        ;
+
+        
+    
+    
+            marker_1c35a9fd4b7cd173a31b345125fae467.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_753bc680adea95bb62951bee06a73972 = L.marker(
+                [26.3209446, 88.54711392409172],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_c7da7c17d76729a5854b969d9e26e69e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2c002905222dd8900655d8c72288c829 = $(`<div id="html_2c002905222dd8900655d8c72288c829" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 21-Oct-16<br>         <b>Location:</b> Panchagarh<br>         <b>Target/Event:</b> Jogeshwar Roy<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_c7da7c17d76729a5854b969d9e26e69e.setContent(html_2c002905222dd8900655d8c72288c829);
+            
+        
+
+        marker_753bc680adea95bb62951bee06a73972.bindPopup(popup_c7da7c17d76729a5854b969d9e26e69e)
+        ;
+
+        
+    
+    
+            marker_753bc680adea95bb62951bee06a73972.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a4529e24e7ac5796d0885cd2e517555d = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_0b0db27bd5619a643715ce91868b4e74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24540874d911f7621058da082eb666a7 = $(`<div id="html_24540874d911f7621058da082eb666a7" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 17-Mar-17<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> RAB Camp Suicide Bombing<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 2<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Suicide bombing at RAB camp         </div>`)[0];
+                popup_0b0db27bd5619a643715ce91868b4e74.setContent(html_24540874d911f7621058da082eb666a7);
+            
+        
+
+        marker_a4529e24e7ac5796d0885cd2e517555d.bindPopup(popup_0b0db27bd5619a643715ce91868b4e74)
+        ;
+
+        
+    
+    
+            marker_a4529e24e7ac5796d0885cd2e517555d.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1129155337195375926439eaa13a5921 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_122e067516bbced0a10bb4d935daa984 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f582c5997841f3a7c1ebf8b87761b52c = $(`<div id="html_f582c5997841f3a7c1ebf8b87761b52c" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> ISG<br>         <b>Date:</b> 24-Mar-17<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Police Checkpoint Suicide Bombing<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_122e067516bbced0a10bb4d935daa984.setContent(html_f582c5997841f3a7c1ebf8b87761b52c);
+            
+        
+
+        marker_1129155337195375926439eaa13a5921.bindPopup(popup_122e067516bbced0a10bb4d935daa984)
+        ;
+
+        
+    
+    
+            marker_1129155337195375926439eaa13a5921.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3db25d83017e1a3acf4069c142899438 = L.marker(
+                [22.26953265, 89.19527412950279],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_1408593fd22baff91838a29cc84a96bd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4d688615a3a8b1797a152f6baf01f9ef = $(`<div id="html_4d688615a3a8b1797a152f6baf01f9ef" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 11-Jun-18<br>         <b>Location:</b> Munshigang<br>         <b>Target/Event:</b> Shahjahan Bachchu<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_1408593fd22baff91838a29cc84a96bd.setContent(html_4d688615a3a8b1797a152f6baf01f9ef);
+            
+        
+
+        marker_3db25d83017e1a3acf4069c142899438.bindPopup(popup_1408593fd22baff91838a29cc84a96bd)
+        ;
+
+        
+    
+    
+            marker_3db25d83017e1a3acf4069c142899438.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_19fa4adaca2a520e9e614ebedcf8eecb = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_20b6e4a3b839d5aabbbd0d866fd96538 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6db7282dbd5be04293640c8e2f23ac6 = $(`<div id="html_c6db7282dbd5be04293640c8e2f23ac6" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 31-Oct-19<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Ashik Mahmud Chowdhury & Shahaduj Jaman Shanto. ...<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 1<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_20b6e4a3b839d5aabbbd0d866fd96538.setContent(html_c6db7282dbd5be04293640c8e2f23ac6);
+            
+        
+
+        marker_19fa4adaca2a520e9e614ebedcf8eecb.bindPopup(popup_20b6e4a3b839d5aabbbd0d866fd96538)
+        ;
+
+        
+    
+    
+            marker_19fa4adaca2a520e9e614ebedcf8eecb.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_085027091977f498b50c08c6bb916d65 = L.marker(
+                [22.7166509, 89.0749857],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_c10b08054928fe9129ce97aee6060827 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a658f01419ada07811f4b42d0c4357ef = $(`<div id="html_a658f01419ada07811f4b42d0c4357ef" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 21-Jun-22<br>         <b>Location:</b> Satkhira<br>         <b>Target/Event:</b> S M Saifur Rahman<br>         <b>Killed:</b> 1<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> nan         </div>`)[0];
+                popup_c10b08054928fe9129ce97aee6060827.setContent(html_a658f01419ada07811f4b42d0c4357ef);
+            
+        
+
+        marker_085027091977f498b50c08c6bb916d65.bindPopup(popup_c10b08054928fe9129ce97aee6060827)
+        ;
+
+        
+    
+    
+            marker_085027091977f498b50c08c6bb916d65.bindTooltip(
+                `<div>
+                     Killed: 1, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_269811cbc2d11acf75cbc4e47f9c968c = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_6b262c39e0f4d48ee70f837d72bbed19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4ae6ade266fdd68a9d888b126feac6b7 = $(`<div id="html_4ae6ade266fdd68a9d888b126feac6b7" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> HJB<br>         <b>Date:</b> 18-Jan-99<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Shamsur Rahman (Poet)<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> An attempted assassination of the renowned poet Shamsur Rahman, though he survived the attack.         </div>`)[0];
+                popup_6b262c39e0f4d48ee70f837d72bbed19.setContent(html_4ae6ade266fdd68a9d888b126feac6b7);
+            
+        
+
+        marker_269811cbc2d11acf75cbc4e47f9c968c.bindPopup(popup_6b262c39e0f4d48ee70f837d72bbed19)
+        ;
+
+        
+    
+    
+            marker_269811cbc2d11acf75cbc4e47f9c968c.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e02204540a8e3992c9092d3397f8b40d = L.marker(
+                [22.6554781, 89.7941813],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_22268dfcd1cb3468bfef36ab3db5aeea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4b8253c752b595f8892660a7fbdd971 = $(`<div id="html_c4b8253c752b595f8892660a7fbdd971" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 24-Jan-04<br>         <b>Location:</b> Bagerhat<br>         <b>Target/Event:</b> Police Camp<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 3<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack on a police camp, injuring officers.         </div>`)[0];
+                popup_22268dfcd1cb3468bfef36ab3db5aeea.setContent(html_c4b8253c752b595f8892660a7fbdd971);
+            
+        
+
+        marker_e02204540a8e3992c9092d3397f8b40d.bindPopup(popup_22268dfcd1cb3468bfef36ab3db5aeea)
+        ;
+
+        
+    
+    
+            marker_e02204540a8e3992c9092d3397f8b40d.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_02fd7d8ef1a7b0db518d3ff2723bc2ed = L.marker(
+                [22.82123155, 89.62938591415187],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_0b760efe4f506f238e371a2507937da3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1fcb5afc15e5158758b40f61dac89e2c = $(`<div id="html_1fcb5afc15e5158758b40f61dac89e2c" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 20-Feb-04<br>         <b>Location:</b> Rupsha<br>         <b>Target/Event:</b> Cinema House<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 4<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Bomb attack on a cinema house, aimed at cultural suppression.         </div>`)[0];
+                popup_0b760efe4f506f238e371a2507937da3.setContent(html_1fcb5afc15e5158758b40f61dac89e2c);
+            
+        
+
+        marker_02fd7d8ef1a7b0db518d3ff2723bc2ed.bindPopup(popup_0b760efe4f506f238e371a2507937da3)
+        ;
+
+        
+    
+    
+            marker_02fd7d8ef1a7b0db518d3ff2723bc2ed.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3f07112edbd79bf6e45460d28b06057c = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_cb36d249095a3200a5520e4f60c7da18 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_44621fc48c17ae60acc86efa3780c979 = $(`<div id="html_44621fc48c17ae60acc86efa3780c979" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 27-Feb-04<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Humayun Azad (Author)<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 0<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> High-profile assassination attempt on writer Humayun Azad, who was known for his  secular views.         </div>`)[0];
+                popup_cb36d249095a3200a5520e4f60c7da18.setContent(html_44621fc48c17ae60acc86efa3780c979);
+            
+        
+
+        marker_3f07112edbd79bf6e45460d28b06057c.bindPopup(popup_cb36d249095a3200a5520e4f60c7da18)
+        ;
+
+        
+    
+    
+            marker_3f07112edbd79bf6e45460d28b06057c.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b2e49d720690d7fea7102f33d1ef062f = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_8c46df6036142c2286ad45c9180cf456 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_76864f17a10e5165e9404e84f7e0e40b = $(`<div id="html_76864f17a10e5165e9404e84f7e0e40b" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 14-Feb-05<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Valentine's Day Concert - Dhaka University<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 8<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Sound blast to disrupt a Valentine's Day event, showing opposition to Western cultural influence.         </div>`)[0];
+                popup_8c46df6036142c2286ad45c9180cf456.setContent(html_76864f17a10e5165e9404e84f7e0e40b);
+            
+        
+
+        marker_b2e49d720690d7fea7102f33d1ef062f.bindPopup(popup_8c46df6036142c2286ad45c9180cf456)
+        ;
+
+        
+    
+    
+            marker_b2e49d720690d7fea7102f33d1ef062f.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_da310d63b4531a565d27c5dc1b5164d1 = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_f5111d91c092afae26625cd5bec85a7e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d5baa4e3035d12a1a09c83a29d2f060 = $(`<div id="html_3d5baa4e3035d12a1a09c83a29d2f060" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 5-Jan-13<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Asif Mohiuddin<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 1<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Attack on blogger Asif Mohiuddin for his secular writings, although he survived.         </div>`)[0];
+                popup_f5111d91c092afae26625cd5bec85a7e.setContent(html_3d5baa4e3035d12a1a09c83a29d2f060);
+            
+        
+
+        marker_da310d63b4531a565d27c5dc1b5164d1.bindPopup(popup_f5111d91c092afae26625cd5bec85a7e)
+        ;
+
+        
+    
+    
+            marker_da310d63b4531a565d27c5dc1b5164d1.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_55cc12869fccc06c0db0fc0dfa4bdc1f = L.marker(
+                [23.7544529, 90.393336],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_1ac56ec416b80923fabc90a1dc9960f2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b3d0b5d56fd874177f4a7c90332ec975 = $(`<div id="html_b3d0b5d56fd874177f4a7c90332ec975" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> AQS<br>         <b>Date:</b> 7-Mar-13<br>         <b>Location:</b> Dhaka<br>         <b>Target/Event:</b> Sunnyur Rahaman. ...<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 1<br>         <b>Claimed?:</b> No<br>         <b>Notes:</b> Attack on activists, resulting in severe injuries.         </div>`)[0];
+                popup_1ac56ec416b80923fabc90a1dc9960f2.setContent(html_b3d0b5d56fd874177f4a7c90332ec975);
+            
+        
+
+        marker_55cc12869fccc06c0db0fc0dfa4bdc1f.bindPopup(popup_1ac56ec416b80923fabc90a1dc9960f2)
+        ;
+
+        
+    
+    
+            marker_55cc12869fccc06c0db0fc0dfa4bdc1f.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_98446555891212f50b0eded4d0cbe147 = L.marker(
+                [24.8889305, 90.3845187],
+                {
+}
+            ).addTo(marker_cluster_7c0b66e37c98798eff3012f608b64059);
+        
+    
+        var popup_a46a74bab48c6df2966d810517208ea7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f456be85cc6604a77a8de9ecfc1808a = $(`<div id="html_1f456be85cc6604a77a8de9ecfc1808a" style="width: 100.0%; height: 100.0%;">         <b>Group:</b> JMB<br>         <b>Date:</b> 23-Feb-14<br>         <b>Location:</b> Mymensingh<br>         <b>Target/Event:</b> Prison Van Attack<br>         <b>Killed:</b> 0<br>         <b>Injured:</b> 4<br>         <b>Claimed?:</b> Yes<br>         <b>Notes:</b> Attempt to free prisoners, showing the group's organizational capacity.         </div>`)[0];
+                popup_a46a74bab48c6df2966d810517208ea7.setContent(html_1f456be85cc6604a77a8de9ecfc1808a);
+            
+        
+
+        marker_98446555891212f50b0eded4d0cbe147.bindPopup(popup_a46a74bab48c6df2966d810517208ea7)
+        ;
+
+        
+    
+    
+            marker_98446555891212f50b0eded4d0cbe147.bindTooltip(
+                `<div>
+                     Killed: 0, Injured: 4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_7c0b66e37c98798eff3012f608b64059.addTo(map_8164082657f5b960aca6690c3b4a56a7);
+        
+</script>
+</html>
