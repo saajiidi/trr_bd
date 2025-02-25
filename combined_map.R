@@ -24,6 +24,7 @@ sheet_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vROsLYRpCh6rUAQFbN
 # Read the data
 df <- read.csv(sheet_url)
 # Load the geocoded dataset df <- read.csv("Terror Attack in BD - Main.csv")
+head(df)
 
 # Check if required columns exist
 required_columns <- c("Longitude", "Latitude", "Group", "Date", "Location", 
