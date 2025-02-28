@@ -1,2 +1,0 @@
-# Terror Incident in BD
- 

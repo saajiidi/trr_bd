@@ -23,7 +23,6 @@ sheet_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vROsLYRpCh6rUAQFbN
 
 # Read the data
 df <- read.csv(sheet_url)
-# Load the geocoded dataset df <- read.csv("Terror Attack in BD - Main.csv")
 head(df)
 
 # Check if required columns exist
@@ -44,13 +43,9 @@ m <- leaflet(df) %>%
   setView(lng = 90.3563, lat = 23.6850, zoom = 7) %>%  # Center on Bangladesh
   
   # Add Marker Cluster
-  
   addMarkers(
-    
     lng = ~Longitude,
-    
     lat = ~Latitude,
-    
     clusterOptions = markerClusterOptions(),  # Enable marker clustering
     popup = ~paste0(
       "<b>Group:</b> ", Group, "<br>",
@@ -84,8 +79,26 @@ m <- leaflet(df) %>%
     title = "Group"
   )
 
+# Add a custom footer with the dataset link
+m <- m %>%
+  htmlwidgets::onRender("
+    function(el, x) {
+      var footer = document.createElement('div');
+      footer.style.position = 'absolute';
+      footer.style.bottom = '0';
+      footer.style.left = '0';
+      footer.style.right = '0';
+      footer.style.backgroundColor = 'white';
+      footer.style.padding = '10px';
+      footer.style.textAlign = 'center';
+      footer.style.borderTop = '1px solid #ccc';
+      footer.innerHTML = 'Dataset Link: <a href=\"https://docs.google.com/spreadsheets/d/e/2PACX-1vROsLYRpCh6rUAQFbNcXtTHKpeFFPyWzlQmniXa1DL7BVKeeHkl8-Ml-924kHzpRiUV__q0lD8C10FZ/pubhtml\" target=\"_blank\">View Dataset</a>';
+      document.body.appendChild(footer);
+    }
+  ")
+
 # Save the map as an HTML file
-htmlwidgets::saveWidget(m, file = "cluster_map.html", selfcontained = TRUE)
+htmlwidgets::saveWidget(m, file = "index.html", selfcontained = TRUE)
 
 # Display the map
 m
