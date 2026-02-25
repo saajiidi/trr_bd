@@ -198,25 +198,39 @@ tab1, tab2, tab3 = st.tabs(["🌎 Geospatial Intelligence", "📉 Behavioral Ana
 
 with tab1:
     st.subheader("Dynamic Incident Mapping")
-    # ... (Map code remains high performance)
-    # [Rest of the map logic is already robust, keeping the Folium implementation]
     m = folium.Map(location=[23.6850, 90.3563], zoom_start=7, tiles='CartoDB Positron')
     folium.TileLayer('CartoDB DarkMatter', name='Dark Mode').add_to(m)
     
     if not df_final.empty:
         heat_data = [[row['Latitude'], row['Longitude'], row['Casualties']] for _, row in df_final.iterrows()]
-        HeatMap(heat_data, name="Intensity Heatmap", radius=20, blur=25).add_to(m)
+        HeatMap(heat_data, name="Intensity Heatmap", radius=20, blur=25, min_opacity=0.3, gradient={0.4: '#34d399', 0.65: '#f59e0b', 1: '#ef4444'}).add_to(m)
         
         marker_cluster = MarkerCluster(name="Detailed Incidents").add_to(m)
         for _, row in df_final.iterrows():
-            popup_html = f"<div style='font-family:sans-serif;'><b>{row['Group']}</b><br>{row['Location']}<br>K: {int(row['Killed'])} | I: {int(row['Injured'])}</div>"
+            popup_html = f"""
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 12px; width: 240px; background: #fff; border-radius: 12px;">
+                <h6 style="margin:0; color: #059669; font-weight: 700;">{row['Group']}</h6>
+                <div style="margin-top: 8px; font-size: 0.85rem; color: #475569;">
+                    <b>📅 Date:</b> {row['Date'].strftime('%d %b %Y') if pd.notnull(row['Date']) else 'N/A'}<br>
+                    <b>📍 Location:</b> {row['Location']}<br>
+                    <b>🎯 Target:</b> {row.get('Target/Event', 'N/A')}
+                </div>
+                <hr style="margin: 10px 0; border: none; border-top: 1px solid #f1f5f9;">
+                <div style="display: flex; gap: 10px;">
+                    <span style="color: #ef4444; font-weight: 600;">K: {int(row['Killed'])}</span>
+                    <span style="color: #3b82f6; font-weight: 600;">I: {int(row['Injured'])}</span>
+                </div>
+            </div>
+            """
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
-                radius=8, color="#10b981", fill=True,
-                popup=folium.Popup(popup_html, max_width=250)
+                radius=8, color="#10b981", fill=True, fill_color="#10b981", fill_opacity=0.6,
+                popup=folium.Popup(popup_html, max_width=300),
+                tooltip=f"{row['Group']} | {int(row['Casualties'])} casualties"
             ).add_to(marker_cluster)
         
         Fullscreen().add_to(m)
+        MiniMap(toggle_display=True).add_to(m)
         Search(layer=marker_cluster, geom_type='Point', placeholder='Find group...', search_label='Group').add_to(m)
         folium.LayerControl().add_to(m)
         st_folium(m, width="100%", height=600, use_container_width=True)
@@ -224,22 +238,48 @@ with tab1:
         st.info("No data available for the selected filters.")
 
 with tab2:
-    st.subheader("Statistical Patterns")
+    st.subheader("Statistical Patterns & Investigative Insights")
     
-    # 1. Top Active Groups
-    top_groups = df_final.groupby('Group')['Casualties'].sum().sort_values(ascending=False).head(10).reset_index()
-    fig_groups = px.bar(
-        top_groups, x='Casualties', y='Group', orientation='h',
-        title='Top 10 High-Impact Entities',
-        color='Casualties', color_continuous_scale='Reds',
-        template="plotly_white", text_auto=True
-    )
-    fig_groups.update_layout(yaxis={'categoryorder':'total ascending'})
-    st.plotly_chart(fig_groups, use_container_width=True)
+    # Grid Row 1: Hierarchical & Distribution
+    col1, col2 = st.columns(2)
+    with col1:
+        # Sunburst Chart (RESTORED)
+        target_col = 'Target/Event' if 'Target/Event' in df_final.columns else 'Location'
+        fig_sun = px.sunburst(
+            df_final, path=['Group', target_col], values='Casualties',
+            title='Casualty Hierarchy: Group & Target Type',
+            color='Casualties', color_continuous_scale='GnBu',
+            template="plotly_white"
+        )
+        fig_sun.update_layout(margin=dict(t=40, l=0, r=0, b=0))
+        st.plotly_chart(fig_sun, use_container_width=True)
+    
+    with col2:
+        # Top Active Groups (Bar chart)
+        top_groups = df_final.groupby('Group')['Casualties'].sum().sort_values(ascending=False).head(10).reset_index()
+        fig_groups = px.bar(
+            top_groups, x='Casualties', y='Group', orientation='h',
+            title='Top 10 High-Impact Entities',
+            color='Casualties', color_continuous_scale='Reds',
+            template="plotly_white", text_auto=True
+        )
+        fig_groups.update_layout(yaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig_groups, use_container_width=True)
 
-    col_a, col_b = st.columns(2)
-    with col_a:
-        # 2. Casualty Distribution
+    # Grid Row 2: Intensity Scatter & Proportional Impact
+    col3, col4 = st.columns(2)
+    with col3:
+        # Scatter Plot (RESTORED)
+        fig_scatter = px.scatter(
+            df_final, x='Killed', y='Injured', size='Casualties', color='Group',
+            hover_name='Location', title='Incident Intensity Comparison',
+            labels={'Killed': 'Fatalities', 'Injured': 'Injuries'},
+            template="plotly_white"
+        )
+        st.plotly_chart(fig_scatter, use_container_width=True)
+    
+    with col4:
+        # Impact Distribution (Pie chart)
         fig_dist = px.pie(
             df_final, values='Casualties', names='Group',
             title='Proportional Impact Distribution',
@@ -248,10 +288,12 @@ with tab2:
         fig_dist.update_traces(textposition='inside', textinfo='percent+label')
         st.plotly_chart(fig_dist, use_container_width=True)
     
-    with col_b:
-        # 3. Quarterly Trend
-        if not df_final.empty:
-            timeline = df_final.set_index('Date').resample('QE').sum().reset_index()
+    # Grid Row 3: Full Width Timeline
+    st.markdown("---")
+    if not df_final.empty:
+        df_final_clean = df_final.dropna(subset=['Date'])
+        if not df_final_clean.empty:
+            timeline = df_final_clean.set_index('Date').resample('QE').sum().reset_index()
             fig_trend = px.area(
                 timeline, x='Date', y='Casualties',
                 title='Quarterly Casualty Trajectory',
