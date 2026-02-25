@@ -140,8 +140,22 @@ except Exception as e:
 # Header Section
 col_head, col_status = st.columns([3, 1])
 with col_head:
-    st.markdown('<h1 class="main-title">False Flag <span class="brand-accent">Watch</span></h1>', unsafe_allow_html=True)
-    st.markdown('<p style="color: #64748b; font-size: 1rem; margin-top: -10px;">National Security Incident Monitoring & Verification System</p>', unsafe_allow_html=True)
+    st.markdown("""
+        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z" fill="#10B981" fill-opacity="0.1"/>
+                <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="11" r="4" stroke="#1E293B" stroke-width="2"/>
+                <path d="M15 14L18 17" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div>
+                <h1 style="font-weight: 800; color: #1e293b; font-size: 2.8rem; letter-spacing: -0.025em; margin: 0;">
+                    False Flag <span style="color: #10b981;">Watch</span>
+                </h1>
+                <p style="color: #64748b; font-size: 1rem; margin-top: -5px;">National Security Incident Monitoring & Verification</p>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
 with col_status:
     st.markdown('<div style="text-align: right; margin-top: 15px;"><span class="status-badge">● ANALYSIS LIVE</span></div>', unsafe_allow_html=True)
 
