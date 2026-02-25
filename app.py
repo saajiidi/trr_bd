@@ -260,42 +260,106 @@ with tab1:
         m = folium.Map(location=[23.6850, 90.3563], zoom_start=7, tiles=map_tiles)
         heat_data = [[row['Latitude'], row['Longitude'], row['Casualties']] for _, row in df_final.iterrows()]
         HeatMap(heat_data, name="Intensity", radius=20, blur=25).add_to(m)
-        w_cluster = MarkerCluster(name="Markers").add_to(m)
+        
+        w_cluster = MarkerCluster(name="Detailed Incidents").add_to(m)
         for _, row in df_final.iterrows():
-            popup_html = f"<b>{row['Group']}</b><br>{row['Location']}<br>K: {int(row['Killed'])} | I: {int(row['Injured'])}"
+            popup_html = f"""
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 12px; width: 240px; background: {'#1e293b' if st.session_state.theme == 'Dark' else '#fff'}; border-radius: 12px; color: {'#f1f5f9' if st.session_state.theme == 'Dark' else '#1e293b'}; shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h6 style="margin:0; color: #10B981; font-weight: 700;">{row['Group']}</h6>
+                <div style="margin-top: 8px; font-size: 0.85rem; color: {'#94a3b8' if st.session_state.theme == 'Dark' else '#475569'};">
+                    <b>📅 Date:</b> {row['Date'].strftime('%d %b %Y') if pd.notnull(row['Date']) else 'N/A'}<br>
+                    <b>📍 Location:</b> {row['Location']}
+                </div>
+                <hr style="margin: 10px 0; border: none; border-top: 1px solid {'#334155' if st.session_state.theme == 'Dark' else '#f1f5f9'};">
+                <div style="display: flex; gap: 10px;">
+                    <span style="color: #ef4444; font-weight: 600;">K: {int(row['Killed'])}</span>
+                    <span style="color: #3b82f6; font-weight: 600;">I: {int(row['Injured'])}</span>
+                </div>
+            </div>
+            """
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
-                radius=8, color="#10b981", fill=True,
-                popup=folium.Popup(popup_html, max_width=250)
+                radius=8, color="#10b981", weight=2, fill=True, fill_color="#10b981", fill_opacity=0.6,
+                popup=folium.Popup(popup_html, max_width=300),
+                tooltip=f"{row['Group']} | {int(row['Casualties'])} casualties"
             ).add_to(w_cluster)
+        
         Fullscreen().add_to(m)
-        st_folium(m, width="100%", height=600, key="nat_map")
+        MiniMap(toggle_display=True).add_to(m)
+        Search(layer=w_cluster, geom_type='Point', placeholder='Find group...', search_label='Group').add_to(m)
+        folium.LayerControl(collapsed=False).add_to(m)
+        st_folium(m, width="100%", height=650, key="nat_map")
     else:
         st.info("No data available.")
     st.markdown('</div>', unsafe_allow_html=True)
 
 with tab2:
+    st.subheader("Statistical Patterns & Metrics")
     plotly_template = "plotly_dark" if st.session_state.theme == "Dark" else "plotly_white"
+    
+    # Grid Row 1
     c1, c2 = st.columns(2)
     with c1:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
         if not df_final.empty:
-            fig_sun = px.sunburst(df_final, path=['Group', 'Location'], values='Casualties', title='Hierarchy', template=plotly_template)
-            fig_sun.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+            target_col = 'Target/Event' if 'Target/Event' in df_final.columns else 'Location'
+            fig_sun = px.sunburst(df_final, path=['Group', target_col], values='Casualties', title='Casualty Hierarchy', template=plotly_template)
+            fig_sun.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', margin=dict(t=40, l=0, r=0, b=0))
             st.plotly_chart(fig_sun, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     with c2:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
         if not df_final.empty:
             top = df_final.groupby('Group')['Casualties'].sum().sort_values(ascending=False).head(10).reset_index()
-            fig_bar = px.bar(top, x='Casualties', y='Group', orientation='h', title='Top Entities', template=plotly_template)
-            fig_bar.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+            fig_bar = px.bar(top, x='Casualties', y='Group', orientation='h', title='Top Entities', template=plotly_template, color='Casualties', color_continuous_scale='Reds')
+            fig_bar.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', yaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig_bar, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-with tab3:
+    # Grid Row 2
+    c3, c4 = st.columns(2)
+    with c3:
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        if not df_final.empty:
+            fig_scatter = px.scatter(
+                df_final, x='Killed', y='Injured', size='Casualties', color='Group',
+                hover_name='Location', title='Incident Intensity Analysis',
+                labels={'Killed': 'Fatalities', 'Injured': 'Injuries'},
+                template=plotly_template
+            )
+            fig_scatter.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+            st.plotly_chart(fig_scatter, use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+    with c4:
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        if not df_final.empty:
+            fig_dist = px.pie(df_final, values='Casualties', names='Group', title='Impact Distribution', hole=0.4, template=plotly_template)
+            fig_dist.update_traces(textposition='inside', textinfo='percent+label')
+            fig_dist.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+            st.plotly_chart(fig_dist, use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Timeline
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     if not df_final.empty:
+        df_final_clean = df_final.dropna(subset=['Date'])
+        if not df_final_clean.empty:
+            timeline = df_final_clean.set_index('Date').resample('QE').sum().reset_index()
+            fig_trend = px.area(
+                timeline, x='Date', y='Casualties',
+                title='Quarterly Impact Trajectory',
+                template=plotly_template, color_discrete_sequence=['#10b981']
+            )
+            fig_trend.update_layout(margin=dict(t=40, l=10, r=10, b=10), paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+            st.plotly_chart(fig_trend, use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with tab3:
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.subheader("Event Documentation Ledger")
+    if not df_final.empty:
+        csv = df_final.to_csv(index=False).encode('utf-8')
+        st.download_button(label="📥 Export Forensic Dataset (CSV)", data=csv, file_name="false_flag_watch_dataset.csv", mime="text/csv")
         st.dataframe(df_final[['Date', 'Group', 'Location', 'Killed', 'Injured', 'Notes']], use_container_width=True, hide_index=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -317,10 +381,10 @@ with tab4:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer
-st.markdown("""
+st.markdown(f"""
 <div style="background-color: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 40px; text-align: center;">
     <p style="color: var(--text-muted); font-size: 0.8rem; margin: 0;">
-        False Flag Watch v5.0 • World Surveillance Unified Edition
+        False Flag Watch v5.5 • World Surveillance Unified Edition
     </p>
 </div>
 """, unsafe_allow_html=True)
