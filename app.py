@@ -6,127 +6,121 @@ from folium.plugins import MarkerCluster, HeatMap, Fullscreen, MiniMap, Search
 import plotly.express as px
 import re
 
-# Set page config for a premium feel
+# Theme State Management
+if 'theme' not in st.session_state:
+    st.session_state.theme = 'Light'
+
+# Set page config
 st.set_page_config(
     page_title="False Flag Watch | Reporting",
-    page_icon="�",
+    page_icon="🔍",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
 # Custom CSS for high-end LIGHT aesthetics
-st.markdown("""
+st.markdown(f"""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
     
-    :root {
+    :root {{
         --primary: #10b981;
-        --primary-soft: #ecfdf5;
-        --bg-main: #f8fafc;
-        --card-bg: rgba(255, 255, 255, 0.8);
-        --border-color: #e2e8f0;
-        --text-main: #1e293b;
-        --text-muted: #64748b;
-    }
+        --primary-soft: { '#064e3b' if st.session_state.theme == 'Dark' else '#ecfdf5' };
+        --bg-main: { '#0f172a' if st.session_state.theme == 'Dark' else '#f8fafc' };
+        --card-bg: { 'rgba(30, 41, 59, 0.7)' if st.session_state.theme == 'Dark' else 'rgba(255, 255, 255, 0.8)' };
+        --border-color: { '#334155' if st.session_state.theme == 'Dark' else '#e2e8f0' };
+        --text-main: { '#f1f5f9' if st.session_state.theme == 'Dark' else '#1e293b' };
+        --text-muted: { '#94a3b8' if st.session_state.theme == 'Dark' else '#64748b' };
+    }}
 
-    html, body, [class*="css"] {
+    html, body, [class*="css"] {{
         font-family: 'Plus Jakarta Sans', sans-serif;
-    }
+        color: var(--text-main);
+    }}
 
-    .stApp {
-        background: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
-                    radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%),
-                    var(--bg-main);
-    }
+    .stApp {{
+        background: var(--bg-main);
+        transition: background 0.3s ease;
+    }}
 
     /* Modern Glassmorphism Cards */
-    .glass-card {
+    .glass-card {{
         background: var(--card-bg);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
         border: 1px solid var(--border-color);
-        border-radius: 20px;
-        padding: 24px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        margin-bottom: 20px;
-    }
-    .glass-card:hover {
-        transform: translateY(-4px) scale(1.005);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s ease;
+        margin-bottom: 12px;
+    }}
+    .glass-card:hover {{
+        transform: translateY(-2px);
         border-color: var(--primary);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-    }
+    }}
 
     /* Metric Customization */
-    div[data-testid="stMetric"] {
+    div[data-testid="stMetric"] {{
         background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-    }
+    }}
+    div[data-testid="stMetricValue"] > div {{
+        color: var(--text-main) !important;
+    }}
+    div[data-testid="stMetricLabel"] > div {{
+        color: var(--text-muted) !important;
+    }}
 
     /* Typography & Branding */
-    .brand-title {
-        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    .brand-title {{
+        background: { 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' if st.session_state.theme == 'Dark' else 'linear-gradient(135deg, #1e293b 0%, #334155 100%)' };
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
-        letter-spacing: -0.04em;
-    }
+    }}
 
-    .status-badge {
+    .status-badge {{
         background: var(--primary-soft);
-        color: #059669;
-        padding: 6px 14px;
-        border-radius: 12px;
-        font-size: 0.75rem;
+        color: var(--primary);
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-size: 0.7rem;
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border: 1px solid #d1fae5;
-        box-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
-    }
+        border: 1px solid var(--primary);
+    }}
 
     /* Sidebar Styling */
-    [data-testid="stSidebar"] {
-        background-color: #ffffff;
+    [data-testid="stSidebar"] {{
+        background-color: { '#1e293b' if st.session_state.theme == 'Dark' else '#ffffff' };
         border-right: 1px solid var(--border-color);
-    }
-    [data-testid="stSidebar"] .stMarkdown h3 {
-        color: var(--text-main);
-        font-weight: 700;
-        margin-top: 20px;
-    }
+    }}
 
     /* Tabs Styling */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background-color: #f1f5f9;
-        padding: 6px;
-        border-radius: 16px;
-        margin-bottom: 30px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        height: 48px;
+    .stTabs [data-baseweb="tab-list"] {{
+        gap: 4px;
+        background-color: { '#1e293b' if st.session_state.theme == 'Dark' else '#f1f5f9' };
+        padding: 4px;
         border-radius: 12px;
-        padding: 0 24px;
-        background-color: transparent;
-        border: none;
+        margin-bottom: 20px;
+    }}
+    .stTabs [data-baseweb="tab"] {{
+        border-radius: 8px;
         color: var(--text-muted);
-        font-weight: 600;
-        transition: all 0.2s ease;
-    }
-    .stTabs [aria-selected="true"] {
-        background-color: #ffffff !important;
+    }}
+    .stTabs [aria-selected="true"] {{
+        background-color: { '#334155' if st.session_state.theme == 'Dark' else '#ffffff' } !important;
         color: var(--primary) !important;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    }
-    .stTabs [data-baseweb="tab"]:hover {
-        color: var(--primary);
-    }
+    }}
     
+    /* Header optimization */
+    .header-container {{
+        margin-bottom: 15px !important;
+        padding-top: 5px !important;
+    }}
+
     /* Hide Default Elements */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    #MainMenu {{visibility: hidden;}}
+    footer {{visibility: hidden;}}
+    header {{visibility: hidden;}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -163,31 +157,32 @@ except Exception as e:
 col_head, col_status = st.columns([3, 1])
 with col_head:
     st.markdown("""
-        <div style="display: flex; align-items: center; gap: 24px; margin-bottom: 30px;">
-            <div style="background: white; padding: 12px; border-radius: 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z" fill="#10B981" fill-opacity="0.1"/>
+        <div class="header-container" style="display: flex; align-items: center; gap: 16px;">
+            <div style="background: var(--card-bg); padding: 10px; border-radius: 16px; border: 1px solid var(--border-color);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z" fill="#10B981" fill-opacity="0.2"/>
                     <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="12" cy="11" r="4" stroke="#1E293B" stroke-width="2"/>
-                    <path d="M15 14L18 17" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
             <div>
-                <h1 class="brand-title" style="font-size: 3rem; margin: 0; line-height: 1;">
+                <h1 class="brand-title" style="font-size: 2.2rem; margin: 0; line-height: 1.1;">
                     False Flag <span style="color: #10b981;">Watch</span>
                 </h1>
-                <p style="color: #64748b; font-size: 1.1rem; margin-top: 5px; font-weight: 500;">National Security Verification & Reporting Framework</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 2px;">Verification & Reporting Framework</p>
             </div>
         </div>
     """, unsafe_allow_html=True)
 with col_status:
-    st.markdown('<div style="text-align: right; padding-top: 10px;"><span class="status-badge">● INFRASTRUCTURE READY</span></div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: right; padding-top: 15px;"><span class="status-badge">● INFRASTRUCTURE READY</span></div>', unsafe_allow_html=True)
 
 # Sidebar
-    st.markdown("### 📋 Research Parameters")
-    st.write("Configure the scope of documentation and analysis.")
+with st.sidebar:
+    st.markdown("### 🎨 Visual Theme")
+    st.session_state.theme = st.radio("Interface Mode", ["Light", "Dark"], index=0 if st.session_state.theme == 'Light' else 1, horizontal=True)
     
-    st.subheader("📅 Date Range")
+    st.markdown("### � Research Parameters")
+    # ... rest of sidebar code ...
     min_date = df['Date'].min().date() if not df['Date'].isna().all() else None
     max_date = df['Date'].max().date() if not df['Date'].isna().all() else None
 
@@ -238,13 +233,14 @@ tab1, tab2, tab3 = st.tabs(["🌎 Geospatial Intelligence", "📉 Behavioral Ana
 with tab1:
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.subheader("Interactive Event Mapping")
-    # ... (Folium implementation)
-    m = folium.Map(location=[23.6850, 90.3563], zoom_start=7, tiles='CartoDB Positron')
-    folium.TileLayer('CartoDB DarkMatter', name='Dark Mode').add_to(m)
+    
+    # Theme-aware map tiles
+    map_tiles = 'CartoDB DarkMatter' if st.session_state.theme == 'Dark' else 'CartoDB Positron'
+    m = folium.Map(location=[23.6850, 90.3563], zoom_start=7, tiles=map_tiles)
     
     if not df_final.empty:
         heat_data = [[row['Latitude'], row['Longitude'], row['Casualties']] for _, row in df_final.iterrows()]
-        HeatMap(heat_data, name="Intensity Heatmap", radius=20, blur=25, min_opacity=0.3, gradient={0.4: '#34d399', 0.65: '#f59e0b', 1: '#ef4444'}).add_to(m)
+        HeatMap(heat_data, name="Intensity Heatmap", radius=20, blur=25, min_opacity=0.3).add_to(m)
         
         marker_layer = folium.FeatureGroup(name="Incident Markers")
         marker_cluster = MarkerCluster().add_to(marker_layer)
@@ -284,6 +280,9 @@ with tab1:
 with tab2:
     st.subheader("Statistical Patterns & Metrics")
     
+    # Plotly theme awareness
+    plotly_template = "plotly_dark" if st.session_state.theme == "Dark" else "plotly_white"
+    
     # Restored Sunburst and Scatter Plot with Card Containers
     c1, c2 = st.columns(2)
     with c1:
@@ -293,9 +292,9 @@ with tab2:
             df_final, path=['Group', target_col], values='Casualties',
             title='Casualty Hierarchy',
             color='Casualties', color_continuous_scale='GnBu',
-            template="plotly_white"
+            template=plotly_template
         )
-        fig_sun.update_layout(margin=dict(t=40, l=0, r=0, b=0))
+        fig_sun.update_layout(margin=dict(t=40, l=0, r=0, b=0), paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         st.plotly_chart(fig_sun, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     
@@ -306,9 +305,9 @@ with tab2:
             top_groups, x='Casualties', y='Group', orientation='h',
             title='Top High-Impact Entities',
             color='Casualties', color_continuous_scale='Reds',
-            template="plotly_white", text_auto=True
+            template=plotly_template, text_auto=True
         )
-        fig_groups.update_layout(yaxis={'categoryorder':'total ascending'})
+        fig_groups.update_layout(yaxis={'categoryorder':'total ascending'}, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         st.plotly_chart(fig_groups, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
@@ -319,8 +318,9 @@ with tab2:
             df_final, x='Killed', y='Injured', size='Casualties', color='Group',
             hover_name='Location', title='Incident Intensity Analysis',
             labels={'Killed': 'Fatalities', 'Injured': 'Injuries'},
-            template="plotly_white"
+            template=plotly_template
         )
+        fig_scatter.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         st.plotly_chart(fig_scatter, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     
@@ -329,9 +329,10 @@ with tab2:
         fig_dist = px.pie(
             df_final, values='Casualties', names='Group',
             title='Impact Distribution',
-            hole=0.4, template="plotly_white"
+            hole=0.4, template=plotly_template
         )
         fig_dist.update_traces(textposition='inside', textinfo='percent+label')
+        fig_dist.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         st.plotly_chart(fig_dist, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     
@@ -343,9 +344,9 @@ with tab2:
             fig_trend = px.area(
                 timeline, x='Date', y='Casualties',
                 title='Quarterly Impact Trajectory',
-                template="plotly_white", color_discrete_sequence=['#10b981']
+                template=plotly_template, color_discrete_sequence=['#10b981']
             )
-            fig_trend.update_layout(margin=dict(t=40, l=10, r=10, b=10))
+            fig_trend.update_layout(margin=dict(t=40, l=10, r=10, b=10), paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
             st.plotly_chart(fig_trend, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
