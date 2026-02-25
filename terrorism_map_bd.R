@@ -1,14 +1,9 @@
 # Install required packages only if not already installed
-packages <- c("dplyr", "leaflet", "tidygeocoder", "htmltools", "tidyverse",
-              "ggmap", "httr", "jsonlite", "remotes")
+packages <- c("dplyr", "leaflet", "leaflet.extras", "tidygeocoder", "htmltools", 
+              "tidyverse", "htmlwidgets", "crosstalk", "remotes")
 
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 if (length(new_packages)) install.packages(new_packages)
-
-# Install leaflet.extras from GitHub if not available
-if (!requireNamespace("leaflet.extras", quietly = TRUE)) {
-  remotes::install_github("bhaskarvk/leaflet.extras")
-}
 
 # Load required libraries
 library(dplyr)
@@ -17,88 +12,152 @@ library(leaflet.extras)
 library(tidygeocoder)
 library(htmltools)
 library(htmlwidgets)
+library(crosstalk)
 
-# Replace with your published Google Sheet link
+# 1. Data Loading & Robustness
 sheet_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vROsLYRpCh6rUAQFbNcXtTHKpeFFPyWzlQmniXa1DL7BVKeeHkl8-Ml-924kHzpRiUV__q0lD8C10FZ/pub?output=csv"
 
-# Read the data
-df <- read.csv(sheet_url)
-head(df)
+# Safe read function
+df <- tryCatch({
+  read.csv(sheet_url, stringsAsFactors = FALSE)
+}, error = function(e) {
+  stop("Failed to connect to the dataset. Please check your internet connection or the Sheet link.")
+})
 
-# Check if required columns exist
-required_columns <- c("Longitude", "Latitude", "Group", "Date", "Location", 
-                      "Target.Event", "Killed", "Injured", "Claimed.", "Notes")
-missing_columns <- setdiff(required_columns, colnames(df))
+# Basic Sanitization
+df <- df %>%
+  mutate(
+    Killed = as.numeric(gsub("[^0-9]", "", Killed)) %>% replace_na(0),
+    Injured = as.numeric(gsub("[^0-9]", "", Injured)) %>% replace_na(0),
+    Casualties = Killed + Injured,
+    Longitude = as.numeric(Longitude),
+    Latitude = as.numeric(Latitude),
+    Group = ifelse(is.na(Group) | Group == "", "Unknown", Group)
+  ) %>%
+  filter(!is.na(Longitude) & !is.na(Latitude)) # Remove invalid coordinates
 
-if (length(missing_columns) > 0) {
-  stop("Error: The dataset is missing the following columns: ", paste(missing_columns, collapse = ", "))
-}
+# 2. Crosstalk for Interactive Filtering
+sd <- SharedData$new(df)
 
+# 3. Premium UI Components
 # Define a color palette for groups
-group_colors <- colorFactor(palette = c("red", "blue", "green", "orange"), domain = df$Group)
+group_colors <- colorFactor(
+  palette = "YlOrRd", 
+  domain = df$Group
+)
 
-# Create leaflet map
-m <- leaflet(df) %>%
-  addProviderTiles(providers$CartoDB.Positron) %>%  # Use a cleaner tile layer
-  setView(lng = 90.3563, lat = 23.6850, zoom = 7) %>%  # Center on Bangladesh
+# Custom Popup Logic (Premium Styling)
+popup_content <- paste0(
+  "<div style='font-family: Arial, sans-serif; min-width: 200px;'>",
+  "<h4 style='color: #d9534f; margin-bottom: 5px; border-bottom: 1px solid #eee;'>", df$Group, "</h4>",
+  "<b>📍 Location:</b> ", df$Location, "<br>",
+  "<b>📅 Date:</b> ", df$Date, "<br>",
+  "<div style='margin-top: 10px; background: #f9f9f9; padding: 5px; border-radius: 4px;'>",
+  "<b>Casualties:</b> ",
+  "<span style='color:red;'>💀 ", df$Killed, " Killed</span> | ",
+  "<span style='color:orange;'>🩹 ", df$Injured, " Injured</span>",
+  "</div>",
+  "<p style='font-size: 0.9em; color: #666; font-style: italic; margin-top: 8px;'>", df$Notes, "</p>",
+  "</div>"
+)
+
+# 4. Create Interactive Leaflet Map
+m <- leaflet(sd) %>%
+  # --- Base Layers ---
+  addProviderTiles(providers$CartoDB.Positron, group = "Light (Standard)") %>%
+  addProviderTiles(providers$CartoDB.DarkMatter, group = "Dark Mode") %>%
+  addProviderTiles(providers$Esri.WorldImagery, group = "Satellite") %>%
   
-  # Add Marker Cluster
+  # Set view on Bangladesh
+  setView(lng = 90.3563, lat = 23.6850, zoom = 7) %>%
+  
+  # --- Add Features ---
+  # 1. Marker Cluster Layer
   addMarkers(
-    lng = ~Longitude,
+    lng = ~Longitude, 
     lat = ~Latitude,
-    clusterOptions = markerClusterOptions(),  # Enable marker clustering
-    popup = ~paste0(
-      "<b>Group:</b> ", Group, "<br>",
-      "<b>Date:</b> ", Date, "<br>",
-      "<b>Location:</b> ", Location, "<br>",
-      "<b>Target/Event:</b> ", Target.Event, "<br>",
-      "<b>Killed:</b> ", Killed, "<br>",
-      "<b>Injured:</b> ", Injured, "<br>",
-      "<b>Claimed?:</b> ", Claimed., "<br>",
-      "<b>Notes:</b> ", Notes
-    ),
-    label = ~paste("Killed:", Killed, "| Injured:", Injured)
+    clusterOptions = markerClusterOptions(),
+    popup = popup_content,
+    label = ~paste0(Group, " (", Casualties, " casualties)"),
+    group = "Markers (Clustered)"
   ) %>%
   
-  # Add Heatmap Layer
+  # 2. Heatmap Layer
   addHeatmap(
-    lng = ~Longitude,
+    lng = ~Longitude, 
     lat = ~Latitude,
-    intensity = ~Killed + Injured,  # Use casualties for intensity
-    blur = 15,  # Reduce blur for a sharper heatmap
-    max = max(df$Killed + df$Injured, na.rm = TRUE) * 0.1,  # Dynamic scaling
-    radius = 12,  # Adjust radius for better visualization
-    gradient = c("blue", "yellow", "red")  # Improve heatmap color scheme
+    intensity = ~Casualties,
+    blur = 20, 
+    max = max(df$Casualties, na.rm = TRUE), 
+    radius = 15,
+    group = "Heatmap"
   ) %>%
   
-  # Add Legend
+  # --- Controls ---
+  # Search Bar
+  addSearchOSM() %>%
+  
+  # Fullscreen toggle
+  addFullscreenControl() %>%
+  
+  # Mini-map for context
+  addMiniMap(tiles = providers$CartoDB.Positron, toggleDisplay = TRUE) %>%
+  
+  # Layer Control
+  addLayersControl(
+    baseGroups = c("Light (Standard)", "Dark Mode", "Satellite"),
+    overlayGroups = c("Markers (Clustered)", "Heatmap"),
+    options = layersControlOptions(collapsed = FALSE)
+  ) %>%
+  
+  # Legend
   addLegend(
-    position = "bottomright",
+    position = "bottomleft",
     pal = group_colors,
-    values = ~Group,
-    title = "Group"
+    values = df$Group,
+    title = "Incident Responsible",
+    opacity = 0.7
   )
 
-# Add a custom footer with the dataset link
-m <- m %>%
-  htmlwidgets::onRender("
-    function(el, x) {
-      var footer = document.createElement('div');
-      footer.style.position = 'absolute';
-      footer.style.bottom = '0';
-      footer.style.left = '0';
-      footer.style.right = '0';
-      footer.style.backgroundColor = 'white';
-      footer.style.padding = '10px';
-      footer.style.textAlign = 'center';
-      footer.style.borderTop = '1px solid #ccc';
-      footer.innerHTML = 'Dataset Link: <a href=\"https://docs.google.com/spreadsheets/d/e/2PACX-1vROsLYRpCh6rUAQFbNcXtTHKpeFFPyWzlQmniXa1DL7BVKeeHkl8-Ml-924kHzpRiUV__q0lD8C10FZ/pubhtml\" target=\"_blank\">View Dataset</a>';
-      document.body.appendChild(footer);
-    }
-  ")
+# 5. Assemble Interactive Dashboard
+# Combine filters and map into a single page
+dashboard <- bscols(
+  widths = c(3, 9),
+  list(
+    filter_checkbox("group", "Select Incident Group", sd, ~Group, inline = FALSE),
+    filter_slider("casualties", "Filter by Casualties", sd, ~Casualties, step = 1),
+    filter_select("location", "Search Location", sd, ~Location),
+    hr(),
+    div(style = "font-size: 0.8em; color: gray;",
+        "Data source: National Security Incident Tracker",
+        br(),
+        a(href = "https://docs.google.com/spreadsheets/d/e/2PACX-1vROsLYRpCh6rUAQFbNcXtTHKpeFFPyWzlQmniXa1DL7BVKeeHkl8-Ml-924kHzpRiUV__q0lD8C10FZ/pubhtml", 
+          "View Full Dataset", target = "_blank")
+    )
+  ),
+  m
+)
 
-# Save the map as an HTML file
-htmlwidgets::saveWidget(m, file = "index.html", selfcontained = TRUE)
+# 6. Save & Display
+# Wrap in a theme-friendly div
+final_page <- tagList(
+  tags$head(
+    tags$style(HTML("
+      .selectized { font-family: 'Arial', sans-serif !important; }
+      .well { background-color: #ffffff; border: 1px solid #e3e3e3; border-radius: 8px; }
+      h4 { font-weight: bold; color: #333; }
+    "))
+  ),
+  div(style = "padding: 20px;",
+      h2("SafeBD Intelligence Dashboard", style = "margin-top: 0; color: #2c3e50; font-weight: 800;"),
+      p("Interactive analysis of public security incidents in Bangladesh."),
+      hr(),
+      dashboard
+  )
+)
 
-# Display the map
-m
+# Save to file
+saveWidget(final_page, file = "index.html", selfcontained = TRUE)
+
+# View in RStudio Viewer
+final_page
