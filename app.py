@@ -160,7 +160,7 @@ with col_status:
     st.markdown('<div style="text-align: right; margin-top: 15px;"><span class="status-badge">● ANALYSIS LIVE</span></div>', unsafe_allow_html=True)
 
 # Sidebar
-    st.markdown("### � Research Parameters")
+    st.markdown("### 📋 Research Parameters")
     st.write("Configure the scope of documentation and analysis.")
     
     st.subheader("📅 Date Range")
