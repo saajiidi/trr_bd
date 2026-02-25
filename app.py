@@ -8,8 +8,8 @@ import re
 
 # Set page config for a premium feel
 st.set_page_config(
-    page_title="SafeBD | Intelligence Dashboard",
-    page_icon="🛡️",
+    page_title="BNS-IRR | Research & Reporting Platform",
+    page_icon="�",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -123,15 +123,14 @@ except Exception as e:
 # Header Section
 col_head, col_status = st.columns([3, 1])
 with col_head:
-    st.markdown('<h1 class="main-title">SafeBD <span class="brand-accent">Tracker</span></h1>', unsafe_allow_html=True)
-    st.markdown('<p style="color: #64748b; font-size: 1.1rem; margin-top: -10px;">Strategic Incident Monitoring and Geospatial Intelligence</p>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-title">BNS-IRR <span class="brand-accent">Reporting</span></h1>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #64748b; font-size: 1.1rem; margin-top: -10px;">National Security Incident Reporting & Research Documentation System</p>', unsafe_allow_html=True)
 with col_status:
     st.markdown('<div style="text-align: right; margin-top: 25px;"><span class="status-badge">● LIVE INTELLIGENCE</span></div>', unsafe_allow_html=True)
 
 # Sidebar
-with st.sidebar:
-    st.markdown("### 🔍 Strategic Filters")
-    st.write("Refine your view of the operational landscape.")
+    st.markdown("### � Research Parameters")
+    st.write("Configure the scope of documentation and analysis.")
     
     st.subheader("📅 Date Range")
     min_date = df['Date'].min().date() if not df['Date'].isna().all() else None
@@ -266,7 +265,7 @@ with tab3:
 st.markdown("""
 <div style="background-color: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 40px; text-align: center;">
     <p style="color: #64748b; font-size: 0.9rem; margin: 0;">
-        Built for Modern Security Analytics • Data Source: National Incident Records • 🛡️ Sentinel v2.5
+        Official National Security Research & Documentation Portal • BNS-IRR Framework v3.0
     </p>
 </div>
 """, unsafe_allow_html=True)

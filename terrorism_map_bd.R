@@ -149,8 +149,8 @@ final_page <- tagList(
     "))
   ),
   div(style = "padding: 20px;",
-      h2("SafeBD Intelligence Dashboard", style = "margin-top: 0; color: #2c3e50; font-weight: 800;"),
-      p("Interactive analysis of public security incidents in Bangladesh."),
+      h2("BNS-IRR: National Security Incident Documentation & Research", style = "margin-top: 0; color: #2c3e50; font-weight: 800;"),
+      p("A comprehensive reporting and research system for analyzing security incidents in Bangladesh."),
       hr(),
       dashboard
   )

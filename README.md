@@ -1,6 +1,6 @@
-# SafeBD | National Incident Intelligence Dashboard
+# BNS-IRR | Bangladesh National Security Incident Reporting & Research Dashboard
 
-A premium intelligence platform for visualizing and analyzing public security incidents in Bangladesh. Built with **R (Leaflet/Crosstalk)** and **Python (Streamlit/Folium)**.
+An official research-driven platform for the documentation, visualization, and academic analysis of security-related incidents in Bangladesh.
 
 ## 🌟 Key Features
 *   **Dual-Platform Intelligence**: Choose between a standalone interactive HTML dashboard (R) or a full-featured web app (Python).
