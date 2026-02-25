@@ -149,8 +149,8 @@ final_page <- tagList(
     "))
   ),
   div(style = "padding: 20px;",
-      h2("SafeBD: Research & Reporting", style = "margin-top: 0; color: #2c3e50; font-weight: 800;"),
-      p("Security Incident Reporting & Research System"),
+      h2("False Flag Watch: Incident Documentation", style = "margin-top: 0; color: #2c3e50; font-weight: 800;"),
+      p("National Security Incident Monitoring & Verification System"),
       hr(),
       dashboard
   )

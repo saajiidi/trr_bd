@@ -8,8 +8,8 @@ import re
 
 # Set page config for a premium feel
 st.set_page_config(
-    page_title="SafeBD | Reporting",
-    page_icon="🛡️",
+    page_title="False Flag Watch | Reporting",
+    page_icon="�",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -140,10 +140,10 @@ except Exception as e:
 # Header Section
 col_head, col_status = st.columns([3, 1])
 with col_head:
-    st.markdown('<h1 class="main-title">Safe<span class="brand-accent">BD</span></h1>', unsafe_allow_html=True)
-    st.markdown('<p style="color: #64748b; font-size: 1rem; margin-top: -10px;">Security Research & Reporting System</p>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-title">False Flag <span class="brand-accent">Watch</span></h1>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #64748b; font-size: 1rem; margin-top: -10px;">National Security Incident Monitoring & Verification System</p>', unsafe_allow_html=True)
 with col_status:
-    st.markdown('<div style="text-align: right; margin-top: 15px;"><span class="status-badge">● LIVE</span></div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: right; margin-top: 15px;"><span class="status-badge">● ANALYSIS LIVE</span></div>', unsafe_allow_html=True)
 
 # Sidebar
     st.markdown("### � Research Parameters")
@@ -282,7 +282,7 @@ with tab3:
 st.markdown("""
 <div style="background-color: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 40px; text-align: center;">
     <p style="color: #64748b; font-size: 0.8rem; margin: 0;">
-        SafeBD v4.0 • Research/Reporting Portal
+        False Flag Watch v4.5 • Investigative Reporting Portal
     </p>
 </div>
 """, unsafe_allow_html=True)

@@ -1,6 +1,6 @@
-# SafeBD | Security Research & Reporting Dashboard
+# False Flag Watch | National Security Incident Monitoring Dashboard
 
-A short, accessible, and mobile-friendly platform for security documentation in Bangladesh.
+An investigative research platform dedicated to the documentation, verification, and analysis of security incidents.
 
 ## 🌟 Key Features
 *   **Dual-Platform Intelligence**: Choose between a standalone interactive HTML dashboard (R) or a full-featured web app (Python).
